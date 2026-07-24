@@ -1,0 +1,49 @@
+# GrokLink OS — https://groklink.jonbailey.xyz
+# Source of truth (code): https://github.com/Pitchfork-and-Torch/GrokLink-OS
+User-agent: *
+Allow: /
+Allow: /llms.txt
+Allow: /sitemap.xml
+Allow: /assets/
+
+# Answer engines / AI crawlers (AEO)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+Sitemap: https://groklink.jonbailey.xyz/sitemap.xml
+# Machine-readable summary: https://groklink.jonbailey.xyz/llms.txt
+
+# IndexNow key: https://groklink.jonbailey.xyz/7577922ed4d3ec3df303933b78cbd0ee.txt

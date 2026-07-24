@@ -1,0 +1,12 @@
+{
+  "description": "TEMPLATE - protocol family names to forbid for TX/emulation under healthcare-adjacent RoE.",
+  "banned_protocols": [],
+  "suggested_tx_deny_examples": [
+    "life_support_wireless",
+    "implant_programmer",
+    "infusion_pump_rf",
+    "patient_telemetry",
+    "access_control_clinical"
+  ],
+  "comment": "Policy labels for engagement scope, not decoder IDs. Default empty."
+}

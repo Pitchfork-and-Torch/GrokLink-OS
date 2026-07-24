@@ -1,0 +1,85 @@
+// GrokLink OS 3.0 — GrokRPC schema (protobuf IDL).
+// Host currently uses JSON lines; binary frames carry these messages when enabled.
+
+syntax = "proto3";
+package groklink.os.v3;
+
+message SessionOpen {
+  string edu_ack_phrase = 1;
+  string client_name = 2;
+  uint32 client_api = 3;
+}
+
+message Status {
+  string version = 1;
+  uint32 api = 2;
+  bool edu_acked = 3;
+  bool sd_present = 4;
+  bool blacklist_ok = 5;
+  uint32 heap_free = 6;
+  uint32 missions = 7;
+  uint32 skills = 8;
+  uint32 radio_state = 9;
+}
+
+message SubGhzRxRequest {
+  uint32 freq_hz = 1;
+  uint32 duration_ms = 2;
+}
+
+message SubGhzRxResult {
+  int32 err = 1;
+  uint32 freq_hz = 2;
+  uint32 duration_ms = 3;
+  int32 pulses = 4;
+  int32 rssi_est = 5;
+  bool simulated = 6;
+}
+
+message SubGhzTxRequest {
+  uint32 freq_hz = 1;
+  string path = 2;
+  string confirm_id = 3;
+}
+
+message ConfirmIssue {
+  string action = 1;
+  uint32 ttl_sec = 2;
+  uint32 scope_freq_hz = 3;
+  int32 scope_gpio = 4;
+}
+
+message ConfirmToken {
+  string confirm_id = 1;
+  uint32 expires_unix = 2;
+}
+
+message SpectrumRequest {
+  repeated uint32 freqs_hz = 1;
+  uint32 dwell_ms = 2;
+  uint32 settle_ms = 3;
+}
+
+message SpectrumBand {
+  uint32 freq_hz = 1;
+  int32 pulses = 2;
+  int32 err = 3;
+}
+
+message SpectrumResult {
+  repeated SpectrumBand bands = 1;
+}
+
+message StreamEvent {
+  string kind = 1;
+  uint64 ts_ms = 2;
+  string json_detail = 3;
+}
+
+message MissionArm {
+  string id = 1;
+}
+
+message AuditTailRequest {
+  uint32 max_lines = 1;
+}

@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "groklink-os"
+version = "3.7.1"
+description = "GrokLink OS PC bridge — RPC, multi-LLM signal observability, skill craft"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "Pitchfork-and-Torch" }]
+dependencies = [
+  "typer>=0.12",
+  "rich>=13.0",
+]
+
+[project.optional-dependencies]
+serial = ["pyserial>=3.5"]
+dev = ["pytest>=7.0", "pyserial>=3.5"]
+
+[project.scripts]
+groklink-os = "groklink_os.cli:app"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["groklink_os*"]

@@ -1,0 +1,153 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/Pitchfork-and-Torch/GrokLink-OS/bridge/schemas/signal_observation.v2.json",
+  "title": "GrokLink signal observation v2",
+  "description": "Passive RF observation for multi-LLM agents. Never includes TX. Never decodes third-party payloads.",
+  "type": "object",
+  "required": ["schema", "schema_version", "observation_id", "kind", "timestamps", "policy_context", "safety", "narrative"],
+  "properties": {
+    "schema": {
+      "const": "groklink.signal_observation.v2"
+    },
+    "schema_version": { "const": 2 },
+    "schema_compat": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Older schema IDs this object remains readable as."
+    },
+    "observation_id": { "type": "string" },
+    "kind": {
+      "type": "string",
+      "enum": [
+        "rx_snapshot",
+        "spectrum_scan",
+        "monitor_chunk",
+        "device_status",
+        "activity_summary",
+        "schema_desc",
+        "noise_floor",
+        "band_compare",
+        "calibration_state"
+      ]
+    },
+    "timestamps": {
+      "type": "object",
+      "properties": {
+        "utc": { "type": "string" },
+        "device_mono_ms": { "type": ["integer", "null"] },
+        "host_mono_ms": { "type": "integer" }
+      }
+    },
+    "device": { "type": "object" },
+    "policy_context": {
+      "type": "object",
+      "required": ["passive_only", "tx_available"],
+      "properties": {
+        "passive_only": { "const": true },
+        "edu_required": { "type": "boolean" },
+        "edu_acked": { "type": "boolean" },
+        "tx_available": { "const": false },
+        "note": { "type": "string" }
+      }
+    },
+    "safety": {
+      "type": "object",
+      "required": ["tx"],
+      "properties": {
+        "path": { "type": "string" },
+        "tx": { "const": false },
+        "gpio": { "const": false },
+        "system": { "const": false },
+        "audited": { "type": "boolean" },
+        "authorized_use_only": { "type": "boolean" },
+        "decode": { "const": false }
+      }
+    },
+    "rf": {
+      "type": "object",
+      "properties": {
+        "freq_hz": { "type": "integer" },
+        "freq_mhz": { "type": "number" },
+        "bandwidth_hz": { "type": ["integer", "null"] },
+        "dwell_ms": { "type": "integer" },
+        "band_label": { "type": "string" }
+      }
+    },
+    "stats": {
+      "type": "object",
+      "description": "Light-RX statistics — edges and RSSI only, no demod.",
+      "properties": {
+        "pulse_rate_hz": { "type": ["number", "null"] },
+        "rssi_min_dbm": { "type": ["integer", "null"] },
+        "rssi_max_dbm": { "type": ["integer", "null"] },
+        "rssi_dbm": { "type": ["integer", "null"] },
+        "pulses": { "type": "integer" },
+        "dwell_ms": { "type": "integer" }
+      }
+    },
+    "calibration": {
+      "type": "object",
+      "properties": {
+        "noise_floor_dbm": { "type": ["number", "null"] },
+        "baseline_pulse_rate_hz": { "type": ["number", "null"] },
+        "snr_est_db": { "type": ["number", "null"] },
+        "method": {
+          "type": "string",
+          "enum": ["none", "host_rolling", "observe_noise_floor", "device_hint"]
+        },
+        "age_ms": { "type": ["integer", "null"] },
+        "band_label": { "type": "string" }
+      }
+    },
+    "activity": {
+      "type": "object",
+      "properties": {
+        "pulses": { "type": "integer" },
+        "rssi_dbm": { "type": ["integer", "null"] },
+        "energy_score": { "type": "number" },
+        "occupancy": {
+          "type": "string",
+          "enum": ["quiet", "low", "medium", "high", "unknown"]
+        },
+        "calibrated_occupancy": {
+          "type": "string",
+          "enum": ["quiet", "ambient", "elevated", "busy", "unknown"]
+        },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1 },
+        "modulation_hint": { "type": "string" }
+      }
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type"],
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "quiet_dwell",
+              "edge_activity",
+              "elevated_vs_noise",
+              "band_hotspot",
+              "noise_floor_sample",
+              "sample_ref"
+            ]
+          },
+          "duration_ms": { "type": "integer" },
+          "pulse_count": { "type": "integer" },
+          "pulse_rate_hz": { "type": "number" },
+          "delta_db": { "type": "number" },
+          "modulation_hint": { "type": "string" },
+          "payload_hex": { "type": "null" },
+          "note": { "type": "string" }
+        }
+      }
+    },
+    "spectrum": { "type": "object" },
+    "window": { "type": "object" },
+    "raw_device": { "type": "object" },
+    "narrative": { "type": "string" }
+  },
+  "additionalProperties": true
+}

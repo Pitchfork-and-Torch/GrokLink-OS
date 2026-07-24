@@ -1,0 +1,17 @@
+{
+  "params": {
+    "bands_hz": [315000000, 433920000, 868350000, 915000000],
+    "default_duration_ms": 150
+  },
+  "on_run": [
+    { "op": "log", "message": "fac_rf_baseline_watch start - not a medical device" },
+    { "op": "subghz_rx", "freq_hz": 315000000, "duration_ms": 150 },
+    { "op": "delay", "ms": 80 },
+    { "op": "subghz_rx", "freq_hz": 433920000, "duration_ms": 150 },
+    { "op": "delay", "ms": 80 },
+    { "op": "subghz_rx", "freq_hz": 868350000, "duration_ms": 150 },
+    { "op": "delay", "ms": 80 },
+    { "op": "subghz_rx", "freq_hz": 915000000, "duration_ms": 150 },
+    { "op": "log", "message": "fac_rf_baseline_watch complete" }
+  ]
+}

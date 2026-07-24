@@ -1,0 +1,13 @@
+﻿{
+    "image":  "bringup",
+    "codename":  "GrokLink Native",
+    "flash_address":  "0x08000000",
+    "version":  "3.0.0-bringup",
+    "identity":  "GROKLINK_OS_DFU_V3",
+    "dfu":  "GrokLink-OS-v3.0.0-bringup.dfu",
+    "target":  "stm32wb55-f7",
+    "warning":  "EXPERIMENTAL. Replaces full Flipper firmware UI. Recover with BACK+DFU + GrokLink-v2.1.3.dfu or stock.",
+    "product":  "GrokLink OS",
+    "built_utc":  "2026-07-22T12:39:12.1403594Z",
+    "bin":  "GrokLink-OS-v3.0.0-bringup.bin"
+}

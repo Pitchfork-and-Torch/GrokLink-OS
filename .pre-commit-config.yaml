@@ -1,0 +1,10 @@
+# Optional: pip install pre-commit && pre-commit install
+repos:
+  - repo: local
+    hooks:
+      - id: mojibake-check
+        name: UTF-8 mojibake check
+        entry: python scripts/check_mojibake.py
+        language: system
+        pass_filenames: false
+        always_run: true

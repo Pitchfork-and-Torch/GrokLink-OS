@@ -1,0 +1,41 @@
+{
+  "meta": {
+    "suite": "field-suite-v3.7.0",
+    "firmware": "3.7.0",
+    "scope": "authorized_lab_passive_only",
+    "source": "post_flash_silicon_plus_host_packager"
+  },
+  "summary": {
+    "passed": 15,
+    "total": 17,
+    "pass_rate": 0.882,
+    "version_on_silicon": "3.7.0",
+    "host_lab_codec_ok": true,
+    "tools_count": 27
+  },
+  "noise_floor_packaged": {
+    "narrative": "Passive RX at 433.920 MHz for 150 ms: pulses=80, rate=533.0 Hz, rssi=-115 dBm, occupancy=high, calibrated=elevated, snr_est=-1.0 dB, simulated=False.",
+    "kind": "noise_floor"
+  },
+  "rx_packaged": {
+    "narrative": "Passive RX at 433.920 MHz for 150 ms (live post-flash RPC ok, 121 ms host round-trip). Hardware path; no payload decode.",
+    "safety": {
+      "path": "passive_rx",
+      "tx": false,
+      "gpio": false,
+      "system": false,
+      "decode": false,
+      "audited": true,
+      "authorized_use_only": true
+    }
+  },
+  "lab_codec": {
+    "encode_ok": true,
+    "decode_ok": true,
+    "third_party_refused": true,
+    "replay_same_bytes": true
+  },
+  "observe_tools": {
+    "count": 27
+  }
+}

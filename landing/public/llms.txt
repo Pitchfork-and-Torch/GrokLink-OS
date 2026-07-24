@@ -1,0 +1,64 @@
+# GrokLink OS
+> From-scratch research RTOS for portable multi-radio hardware. Native OS — not a Flipper Zero fork. Open source MIT.
+
+**Landing:** https://groklink.jonbailey.xyz/  
+**Source / primary product URL:** https://github.com/Pitchfork-and-Torch/GrokLink-OS  
+**Org:** Pitchfork-and-Torch  
+**Last reviewed:** 2026-07-22  
+**Latest version:** 3.7.0
+
+## Citation-ready one-liner
+GrokLink OS is a free, open-source, from-scratch research operating system for STM32WB55 / Flipper-class multi-radio hardware with stable USB CDC GrokRPC, default-deny RF safety, a human-gated passive agent, multi-LLM signal observability, and a PC bridge — not a Flipper firmware fork.
+
+## Quick answers (AEO)
+- **What is GrokLink OS?** A native research RTOS that owns kernel, HAL, drivers, services, GUI, and safety path end-to-end for portable multi-radio labs.
+- **Is it a Flipper Zero fork?** No. Not an overlay on Flipper Zero, Momentum, or Unleashed. GrokLink-Firmware v2.x was a Furi overlay; GrokLink OS 3.x is a separate native OS.
+- **Who is it for?** Authorized researchers and educators on equipment they own or are explicitly authorized to operate. Unauthorized RF/IR/RFID/NFC/access interference may be illegal.
+- **Version / license?** **3.7.0** · MIT.
+- **What is new in 3.7.0?** USB-stable field unit: USB-first boot, light RPC in CDC RX path, service init with continuous USB poll, host DTR defers field SPI so Windows COM stays reliable.
+- **USB identity?** App CDC `VID_0483` / `PID_5740`, product string GrokLink OS; DFU remains `0483:DF11`.
+- **Where is the code?** https://github.com/Pitchfork-and-Torch/GrokLink-OS
+- **Where is the product landing?** https://groklink.jonbailey.xyz/
+- **Releases / DFU:** https://github.com/Pitchfork-and-Torch/GrokLink-OS/releases/latest
+- **PC bridge?** `groklink-os` Python CLI over USB CDC JSON-line GrokRPC at 230400 baud.
+- **Safety model?** Default-deny TX / GPIO / contact / system; edu-ack + human confirm tokens; no third-party remote decode or rolling-code prediction.
+- **Radios / UI?** CC1101 SubGHz (SPI bit-bang path); ST7567 on-device GUI.
+- **Unplugged?** On-device passive agent can explore when no USB host; plug-sync on reconnect.
+- **Related Flipper field ops?** Fl1pp3r69: https://fl1pp3r69.jonbailey.xyz/
+
+## Key facts
+- Kernel + HAL + drivers + services + skills agent loop
+- Safety-gated agent and PC observability bridge
+- Multi-LLM signal observability (schema v2) + owned-lab GLK1 codec education
+- Research / education posture only
+- Not affiliated with Flipper Devices
+
+## Install (host)
+```bash
+git clone https://github.com/Pitchfork-and-Torch/GrokLink-OS.git
+cd GrokLink-OS/bridge
+pip install -e ".[serial]"
+# DFU flash: see README and releases for GrokLink-OS-v3.7.0-radio.dfu
+```
+
+## Crawlable paths
+- https://groklink.jonbailey.xyz/ — product landing
+- https://groklink.jonbailey.xyz/llms.txt — this file
+- https://groklink.jonbailey.xyz/sitemap.xml
+- https://groklink.jonbailey.xyz/robots.txt
+- https://github.com/Pitchfork-and-Torch/GrokLink-OS — source of truth
+- https://github.com/Pitchfork-and-Torch/GrokLink-OS/releases/latest — DFU downloads
+
+## Related network
+- AXIOM (Optimus wardrobe concept): https://axiom.jonbailey.xyz/ · https://axiom.jonbailey.xyz/llms.txt
+- Fl1pp3r69: https://fl1pp3r69.jonbailey.xyz/
+- Ghost Continuum: https://ghost.jonbailey.xyz/
+- Trench Coat: https://trenchcoat.jonbailey.xyz/
+- Socialism Destroyer: https://destroyer.jonbailey.xyz/
+- Jon Bailey (musician): https://jonbailey.xyz/
+- Prior Furi overlay product: https://github.com/Pitchfork-and-Torch/GrokLink-Firmware
+
+## Support
+Issues: https://github.com/Pitchfork-and-Torch/GrokLink-OS/issues
+
+# refreshed: 2026-07-23

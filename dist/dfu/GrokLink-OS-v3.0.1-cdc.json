@@ -1,0 +1,8 @@
+﻿{
+    "version":  "3.0.1-cdc",
+    "flash_address":  "0x08000000",
+    "profile":  "Cdc",
+    "warning":  "EXPERIMENTAL. Keep GrokLink-v2.1.3.dfu for recovery (tools/recover_flipper.ps1).",
+    "product":  "GrokLink OS",
+    "recover":  "Hold BACK + USB DFU, then recover_flipper.ps1"
+}

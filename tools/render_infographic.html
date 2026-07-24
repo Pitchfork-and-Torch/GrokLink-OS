@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>GrokLink OS v3.4.0 Infographic</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap');
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    width: 1400px;
+    background: #050a12;
+    color: #e8f1ff;
+    font-family: Inter, system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .poster {
+    width: 1400px;
+    min-height: 2100px;
+    padding: 48px 52px 40px;
+    background:
+      radial-gradient(ellipse 90% 50% at 15% 0%, rgba(34,211,238,0.12), transparent 55%),
+      radial-gradient(ellipse 70% 40% at 90% 20%, rgba(59,130,246,0.14), transparent 50%),
+      radial-gradient(ellipse 60% 30% at 50% 100%, rgba(16,185,129,0.08), transparent 50%),
+      linear-gradient(180deg, #070d18 0%, #050a12 40%, #04080f 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .poster::before {
+    content: "";
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(rgba(34,211,238,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(34,211,238,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 30%, #000 20%, transparent 75%);
+    pointer-events: none;
+  }
+  .glow-ring {
+    position: absolute; top: -120px; right: -80px;
+    width: 420px; height: 420px; border-radius: 50%;
+    background: radial-gradient(circle, rgba(34,211,238,0.18), transparent 65%);
+    filter: blur(8px);
+  }
+  header {
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 24px; position: relative; z-index: 1; margin-bottom: 28px;
+  }
+  .brand { display: flex; gap: 20px; align-items: center; }
+  .logo {
+    width: 88px; height: 88px; border-radius: 22px;
+    background: linear-gradient(145deg, #0b1e33, #061018);
+    border: 1px solid rgba(34,211,238,0.35);
+    box-shadow: 0 0 40px rgba(34,211,238,0.25), inset 0 0 24px rgba(34,211,238,0.08);
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .logo img { width: 72px; height: 72px; object-fit: contain; }
+  h1 {
+    font-size: 42px; font-weight: 800; letter-spacing: -0.03em;
+    background: linear-gradient(90deg, #f0f9ff, #67e8f9 50%, #60a5fa);
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+  }
+  .tagline { margin-top: 8px; font-size: 16px; color: #94a3b8; max-width: 620px; line-height: 1.45; }
+  .badges { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; }
+  .badge {
+    font-size: 12px; font-weight: 700; letter-spacing: 0.04em;
+    padding: 8px 14px; border-radius: 999px;
+    border: 1px solid rgba(34,211,238,0.35);
+    background: rgba(8,20,36,0.85);
+    color: #a5f3fc;
+    box-shadow: 0 0 20px rgba(34,211,238,0.12);
+  }
+  .badge.warn { color: #fde68a; border-color: rgba(251,191,36,0.4); }
+  .badge.soft { color: #93c5fd; border-color: rgba(96,165,250,0.35); }
+
+  .stats {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px;
+    margin-bottom: 28px; position: relative; z-index: 1;
+  }
+  .stat {
+    padding: 18px 16px; border-radius: 16px;
+    background: linear-gradient(160deg, rgba(15,30,50,0.95), rgba(8,16,28,0.98));
+    border: 1px solid rgba(56,189,248,0.18);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.35);
+  }
+  .stat .v {
+    font-size: 20px; font-weight: 800; color: #67e8f9;
+    letter-spacing: -0.02em;
+  }
+  .stat .l { margin-top: 6px; font-size: 12px; color: #94a3b8; line-height: 1.35; }
+
+  .grid2 {
+    display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 16px;
+    margin-bottom: 16px; position: relative; z-index: 1;
+  }
+  .card {
+    border-radius: 18px; padding: 22px 22px 20px;
+    background: linear-gradient(165deg, rgba(12,24,40,0.96), rgba(7,14,24,0.98));
+    border: 1px solid rgba(56,189,248,0.16);
+    box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+  }
+  .section-title {
+    font-size: 12px; font-weight: 800; letter-spacing: 0.14em;
+    text-transform: uppercase; color: #22d3ee; margin-bottom: 12px;
+  }
+  .card p { font-size: 14px; line-height: 1.55; color: #cbd5e1; }
+  .card p strong { color: #f1f5f9; }
+  .pills { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+  .pill {
+    font-size: 11px; font-weight: 600; padding: 6px 10px; border-radius: 8px;
+    background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.22);
+    color: #a5f3fc;
+  }
+  ul.clean { list-style: none; margin-top: 4px; }
+  ul.clean li {
+    position: relative; padding: 7px 0 7px 18px;
+    font-size: 13.5px; color: #cbd5e1; line-height: 1.4;
+    border-bottom: 1px solid rgba(148,163,184,0.08);
+  }
+  ul.clean li:last-child { border-bottom: 0; }
+  ul.clean li::before {
+    content: ""; position: absolute; left: 0; top: 13px;
+    width: 7px; height: 7px; border-radius: 50%;
+    background: #22d3ee; box-shadow: 0 0 10px #22d3ee;
+  }
+
+  .layers { margin-bottom: 16px; position: relative; z-index: 1; }
+  .layer {
+    display: grid; grid-template-columns: 180px 1fr; gap: 12px;
+    align-items: center; margin-bottom: 8px;
+    padding: 12px 16px; border-radius: 12px;
+    background: rgba(8,16,28,0.9);
+    border: 1px solid rgba(56,189,248,0.12);
+    border-left: 4px solid var(--accent, #22d3ee);
+  }
+  .layer-name {
+    font-size: 12px; font-weight: 800; letter-spacing: 0.08em;
+    color: var(--accent, #22d3ee);
+  }
+  .layer-desc { font-size: 13px; color: #94a3b8; line-height: 1.4; }
+  .layer-desc b { color: #e2e8f0; font-weight: 600; }
+
+  .features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    margin-bottom: 16px; position: relative; z-index: 1;
+  }
+  .feat {
+    display: flex; gap: 12px; padding: 14px 0;
+    border-bottom: 1px solid rgba(148,163,184,0.1);
+  }
+  .feat:last-child { border-bottom: 0; }
+  .dot {
+    width: 10px; height: 10px; border-radius: 50%; margin-top: 5px; flex-shrink: 0;
+    background: #34d399; box-shadow: 0 0 12px #34d399;
+  }
+  .dot.road { background: #64748b; box-shadow: none; }
+  .feat .t { font-size: 14px; font-weight: 700; color: #f1f5f9; }
+  .feat .d { font-size: 12.5px; color: #94a3b8; margin-top: 3px; line-height: 1.4; }
+
+  .new-banner {
+    margin-bottom: 16px; position: relative; z-index: 1;
+    padding: 20px 22px; border-radius: 18px;
+    background:
+      linear-gradient(120deg, rgba(34,211,238,0.12), rgba(59,130,246,0.1), rgba(16,185,129,0.08));
+    border: 1px solid rgba(34,211,238,0.35);
+    box-shadow: 0 0 50px rgba(34,211,238,0.12);
+  }
+  .new-banner h2 {
+    font-size: 15px; font-weight: 800; letter-spacing: 0.12em;
+    text-transform: uppercase; color: #67e8f9; margin-bottom: 14px;
+  }
+  .new-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;
+  }
+  .new-item {
+    padding: 14px 14px 12px; border-radius: 14px;
+    background: rgba(5,12,22,0.75);
+    border: 1px solid rgba(148,163,184,0.12);
+  }
+  .new-item .ico {
+    font-size: 18px; margin-bottom: 8px;
+  }
+  .new-item .nt { font-size: 13.5px; font-weight: 700; color: #f8fafc; }
+  .new-item .nd { font-size: 12px; color: #94a3b8; margin-top: 5px; line-height: 1.4; }
+
+  .flow {
+    display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px;
+    margin-bottom: 16px; position: relative; z-index: 1;
+  }
+  .step {
+    padding: 16px 12px; border-radius: 14px; text-align: center;
+    background: rgba(8,16,28,0.95);
+    border: 1px solid rgba(56,189,248,0.15);
+  }
+  .step .n {
+    width: 28px; height: 28px; margin: 0 auto 10px;
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    font-size: 13px; font-weight: 800; color: #041016;
+    background: linear-gradient(135deg, #22d3ee, #3b82f6);
+    box-shadow: 0 0 16px rgba(34,211,238,0.4);
+  }
+  .step .title { font-size: 13px; font-weight: 700; color: #e2e8f0; }
+  .step .body { font-size: 11.5px; color: #94a3b8; margin-top: 6px; line-height: 1.35; }
+
+  .bottom {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+    margin-bottom: 18px; position: relative; z-index: 1;
+  }
+  .code {
+    font-family: "JetBrains Mono", ui-monospace, monospace;
+    font-size: 12px; line-height: 1.55; color: #67e8f9;
+    background: #020617; border-radius: 12px; padding: 14px 16px;
+    border: 1px solid rgba(34,211,238,0.2);
+    white-space: pre;
+  }
+  .code .c { color: #64748b; }
+  .hw-row { display: flex; gap: 12px; margin-top: 10px; }
+  .hw {
+    flex: 1; padding: 12px; border-radius: 12px;
+    background: rgba(8,16,28,0.9); border: 1px solid rgba(148,163,184,0.12);
+  }
+  .hw .ht { font-size: 13px; font-weight: 700; color: #e2e8f0; }
+  .hw .hd { font-size: 11.5px; color: #94a3b8; margin-top: 4px; line-height: 1.35; }
+
+  footer {
+    position: relative; z-index: 1;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 16px 18px; border-radius: 14px;
+    background: rgba(127,29,29,0.25);
+    border: 1px solid rgba(248,113,113,0.35);
+  }
+  footer .legal { font-size: 11.5px; color: #fecaca; max-width: 900px; line-height: 1.45; }
+  footer .phrase {
+    font-family: "JetBrains Mono", monospace; font-size: 10.5px; font-weight: 600;
+    color: #fde68a; white-space: nowrap; margin-left: 16px;
+  }
+  .foot-meta {
+    margin-top: 14px; display: flex; justify-content: space-between;
+    font-size: 11px; color: #64748b; position: relative; z-index: 1;
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="glow-ring"></div>
+  <header>
+    <div class="brand">
+      <div class="logo"><img src="../docs/assets/logo.jpg" alt="logo" /></div>
+      <div>
+        <h1>GrokLink OS</h1>
+        <p class="tagline">
+          From-scratch research RTOS for multi-radio portable hardware —
+          multi-LLM signal vision, ROM missions, USB-safe offline agent, and default-deny safety.
+        </p>
+      </div>
+    </div>
+    <div class="badges">
+      <span class="badge">v3.4.0 · MIT</span>
+      <span class="badge soft">Native · Not a Flipper fork</span>
+      <span class="badge warn">Authorized research only</span>
+    </div>
+  </header>
+
+  <div class="stats">
+    <div class="stat"><div class="v">STM32WB55</div><div class="l">Primary MCU · F7-class boards</div></div>
+    <div class="stat"><div class="v">Default-Deny</div><div class="l">TX · GPIO · Contact · System</div></div>
+    <div class="stat"><div class="v">CC1101</div><div class="l">SubGHz SPI · VERSION 0x14</div></div>
+    <div class="stat"><div class="v">USB CDC</div><div class="l">JSON-line RPC · 230400 baud</div></div>
+  </div>
+
+  <div class="new-banner">
+    <h2>New in v3.4 — The Signal World for LLMs</h2>
+    <div class="new-grid">
+      <div class="new-item">
+        <div class="ico">◈</div>
+        <div class="nt">Multi-LLM Observation</div>
+        <div class="nd">OpenAI / Claude / Grok / Cursor tools: observe_rx, spectrum, monitor sessions, localhost :8741 API.</div>
+      </div>
+      <div class="new-item">
+        <div class="ico">◎</div>
+        <div class="nt">ROM Mission Catalog</div>
+        <div class="nd">lab_passive_433 · spectrum planner · passive watch — no SD card required.</div>
+      </div>
+      <div class="new-item">
+        <div class="ico">◉</div>
+        <div class="nt">USB-Safe Offline Agent</div>
+        <div class="nd">Autonomous passive ticks ~600ms when bus idle. RAM vault of RX / infer / done events.</div>
+      </div>
+      <div class="new-item">
+        <div class="ico">⬡</div>
+        <div class="nt">Self-Describing Schema</div>
+        <div class="nd">groklink.signal_observation.v1 — narrative, occupancy, energy scores for any tool-calling model.</div>
+      </div>
+      <div class="new-item">
+        <div class="ico">⇄</div>
+        <div class="nt">Dual Transport</div>
+        <div class="nd">TCP host-sim :7341 or USB CDC serial (GLK_SERIAL_PORT). Bridge 3.4.0.</div>
+      </div>
+      <div class="new-item">
+        <div class="ico">▣</div>
+        <div class="nt">ST7567 GUI + Safety</div>
+        <div class="nd">HOME / RADIO / SAFETY / ABOUT · edu_ack · confirm tokens · audit chain.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="card">
+      <div class="section-title">What it is</div>
+      <p>
+        GrokLink OS is a <strong>complete research operating system</strong> — kernel, HAL, drivers,
+        services, GUI, and safety path owned end-to-end. It is <strong>not</strong> a Flipper overlay.
+        Any compatible LLM can treat the device as a <strong>passive RF sensory peripheral</strong>
+        while TX remains human-gated.
+      </p>
+      <div class="pills">
+        <span class="pill">GrokLink RTOS</span>
+        <span class="pill">Policy engine</span>
+        <span class="pill">GrokAgent missions</span>
+        <span class="pill">LLM tools</span>
+        <span class="pill">ST7567 GUI</span>
+        <span class="pill">RAM vault</span>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">Design principles</div>
+      <ul class="clean">
+        <li>Safety by construction — actuators only via policy</li>
+        <li>USB-safe radio — deferred jobs, never in endpoint IRQs</li>
+        <li>Constrained autonomy — offline missions stay passive</li>
+        <li>Audit everything — append-only + host observation logs</li>
+        <li>Honest silicon — no false capability claims</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card layers">
+    <div class="section-title">Architecture layer cake</div>
+    <div class="layer" style="--accent:#22d3ee">
+      <div class="layer-name">LLM / PC BRIDGE</div>
+      <div class="layer-desc"><b>groklink-os</b> · OpenAI tools · observe API :8741 · serial/TCP · skill craft</div>
+    </div>
+    <div class="layer" style="--accent:#60a5fa">
+      <div class="layer-name">APPLICATIONS</div>
+      <div class="layer-desc">ST7567 status UI · shell · factory diagnostics</div>
+    </div>
+    <div class="layer" style="--accent:#34d399">
+      <div class="layer-name">SERVICES</div>
+      <div class="layer-desc">Policy · agent · ROM catalog · vault · RPC · skill · audit · power · ML</div>
+    </div>
+    <div class="layer" style="--accent:#a78bfa">
+      <div class="layer-name">DRIVERS</div>
+      <div class="layer-desc">CC1101 SubGHz · GPIO · IR · NFC stubs · SPI/I2C wrappers</div>
+    </div>
+    <div class="layer" style="--accent:#fbbf24">
+      <div class="layer-name">HAL + KERNEL</div>
+      <div class="layer-desc">Portable HAL · GrokLink RTOS (tasks · mutex · queue · timer · tick)</div>
+    </div>
+    <div class="layer" style="--accent:#f472b6">
+      <div class="layer-name">PLATFORM BSP</div>
+      <div class="layer-desc">Host simulator · STM32WB55 (F7 class) · future MCU ports</div>
+    </div>
+  </div>
+
+  <div class="features">
+    <div class="card">
+      <div class="section-title">Safety model</div>
+      <div class="feat"><div class="dot"></div><div><div class="t">passive_rx</div><div class="d">SubGHz listen — edu session, freq window, rate limits</div></div></div>
+      <div class="feat"><div class="dot" style="background:#fbbf24;box-shadow:0 0 12px #fbbf24"></div><div><div class="t">active_tx · gpio · contact</div><div class="d">Confirm token · blacklist · duty cycle · power cap · audit</div></div></div>
+      <div class="feat"><div class="dot" style="background:#f87171;box-shadow:0 0 12px #f87171"></div><div><div class="t">system</div><div class="d">Reboot / rekey — edu + physical on-device OK + audit</div></div></div>
+      <div class="feat"><div class="dot"></div><div><div class="t">LLM observation path</div><div class="d">Strictly passive tools — never invents TX confirms</div></div></div>
+    </div>
+    <div class="card">
+      <div class="section-title">v3.4.0 status</div>
+      <div class="feat"><div class="dot"></div><div><div class="t">USB CDC JSON RPC</div><div class="d">Deferred RPC · USB-safe · API gen 5</div></div></div>
+      <div class="feat"><div class="dot"></div><div><div class="t">CC1101 light RX</div><div class="d">Bit-bang SPI_R · VERSION 0x14 · sim:false</div></div></div>
+      <div class="feat"><div class="dot"></div><div><div class="t">Multi-LLM observability</div><div class="d">Schema v1 · tools · monitor · HTTP</div></div></div>
+      <div class="feat"><div class="dot"></div><div><div class="t">ROM missions + offline agent</div><div class="d">Allowlisted · RAM vault · ~600ms ticks</div></div></div>
+      <div class="feat"><div class="dot road"></div><div><div class="t">SD FatFs hot-load</div><div class="d">Roadmap — card packages / full offline FS</div></div></div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:16px;position:relative;z-index:1">
+    <div class="section-title">Authorized lab loop</div>
+    <div class="flow">
+      <div class="step"><div class="n">1</div><div class="title">Connect</div><div class="body">CDC / host-sim · ping</div></div>
+      <div class="step"><div class="n">2</div><div class="title">Edu ack</div><div class="body">Authorized targets only</div></div>
+      <div class="step"><div class="n">3</div><div class="title">Observe</div><div class="body">LLM tools · spectrum · RX</div></div>
+      <div class="step"><div class="n">4</div><div class="title">Mission</div><div class="body">ROM catalog · vault</div></div>
+      <div class="step"><div class="n">5</div><div class="title">Gate TX</div><div class="body">Human confirm only</div></div>
+    </div>
+  </div>
+
+  <div class="bottom">
+    <div class="card">
+      <div class="section-title">Hardware focus</div>
+      <div class="hw-row">
+        <div class="hw"><div class="ht">CC1101 SubGHz</div><div class="hd">SPI_R bit-bang · probe / light RX · deferred worker</div></div>
+        <div class="hw"><div class="ht">ST7567 display</div><div class="hd">HOME · RADIO · SAFETY · ABOUT</div></div>
+      </div>
+      <div class="hw-row">
+        <div class="hw"><div class="ht">USB DFU + CDC</div><div class="hd">GrokLink-OS-v3.4.0-radio.dfu · 230400 JSON</div></div>
+        <div class="hw"><div class="ht">GrokAgent + vault</div><div class="hd">Passive IR · RAM events · offline loop</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div class="section-title">PC bridge quick start</div>
+      <div class="code"><span class="c"># install</span>
+cd bridge &amp;&amp; pip install -e ".[serial]"
+
+<span class="c"># device CDC  ·  or host-sim :7341</span>
+set GLK_SERIAL_PORT=COMx
+groklink-os edu-ack
+groklink-os observe-rx --freq 433920000
+groklink-os agent-offline --id lab_passive_watch
+groklink-os vault-tail -n 12</div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="legal">
+      For authorized research, education, and equipment you own (or are explicitly authorized to operate on).
+      Unauthorized RF / IR / RFID / NFC / access-control interference may be a crime. Not a medical device.
+      Authors accept no liability for misuse.
+    </div>
+    <div class="phrase">I_WILL_USE_ONLY_AUTHORIZED_TARGETS</div>
+  </footer>
+  <div class="foot-meta">
+    <span>github.com/Pitchfork-and-Torch/GrokLink-OS</span>
+    <span>Pitchfork-and-Torch · Open source research firmware · v3.4.0</span>
+  </div>
+</div>
+</body>
+</html>

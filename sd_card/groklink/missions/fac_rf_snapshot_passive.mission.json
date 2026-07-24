@@ -1,0 +1,22 @@
+{
+  "id": "fac_rf_snapshot_passive",
+  "name": "Facility passive RF snapshot",
+  "version": 2,
+  "autonomous": false,
+  "description": "Facility engineering multi-band passive snapshot. No TX. NOT a medical device.",
+  "safety": {
+    "max_risk_class": "passive_rx",
+    "require_confirm": false,
+    "not_medical_device": true
+  },
+  "steps": [
+    {"op": "log", "msg": "fac_rf_snapshot_passive start - not a medical device"},
+    {"op": "subghz_rx", "freq_hz": 315000000, "ms": 150},
+    {"op": "sleep_ms", "ms": 80},
+    {"op": "subghz_rx", "freq_hz": 433920000, "ms": 150},
+    {"op": "sleep_ms", "ms": 80},
+    {"op": "subghz_rx", "freq_hz": 868350000, "ms": 150},
+    {"op": "infer"},
+    {"op": "log", "msg": "fac_rf_snapshot_passive complete"}
+  ]
+}

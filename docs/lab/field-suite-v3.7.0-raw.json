@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "suite": "field-suite-v3.7.0",
+    "ts_utc": "2026-07-22T22:28:00+00:00",
+    "scope": "authorized_lab_passive_only",
+    "port": "COM7",
+    "firmware_target": "3.7.0",
+    "flash": {
+      "artifact": "GrokLink-OS-v3.7.0-radio.dfu",
+      "payload_bytes": 35252,
+      "dfu_download": "100%",
+      "post_flash_identity": {
+        "version": "3.7.0",
+        "api": 5,
+        "native": true,
+        "edu": true,
+        "missions": 4,
+        "skills": 3,
+        "heap_free": 4096
+      }
+    },
+    "note": "Post-flash silicon 3.7.0. Device checks from live COM7 session; multi-band RX/spectrum deferred after first RX (known Windows CDC stress)."
+  },
+  "results": {
+    "ping": {
+      "ok": true,
+      "ms": 193,
+      "data": {
+        "ok": true,
+        "cmd": "pong",
+        "api": 5,
+        "version": "3.7.0",
+        "native": true
+      }
+    },
+    "edu_ack": {
+      "ok": true,
+      "ms": 29,
+      "data": { "ok": true, "edu": true }
+    },
+    "status": {
+      "ok": true,
+      "ms": 30,
+      "data": {
+        "ok": true,
+        "version": "3.7.0",
+        "api": 5,
+        "edu": true,
+        "sd": false,
+        "blacklist_ok": true,
+        "radio": 0,
+        "heap_free": 4096,
+        "missions": 4,
+        "skills": 3
+      }
+    },
+    "mission_list": {
+      "ok": true,
+      "ms": 30,
+      "data": {
+        "ok": true,
+        "missions": "lab_passive_433,lab_spectrum_planner,lab_passive_watch,lab_noise_baseline",
+        "count": 4
+      }
+    },
+    "skill_list": {
+      "ok": true,
+      "ms": 29,
+      "data": {
+        "ok": true,
+        "skills": "lab_passive_listen,lab_anomaly_watch,lab_gpio_event",
+        "count": 3
+      }
+    },
+    "subghz_probe": {
+      "ok": true,
+      "ms": 30,
+      "data": { "ok": true, "err": 0, "partnum": 0, "version": 20, "hw": true }
+    },
+    "subghz_rx_433": {
+      "ok": true,
+      "ms": 121,
+      "data": {
+        "ok": true,
+        "err": 0,
+        "freq_hz": 433920000,
+        "ms": 150,
+        "note": "Live RPC ok within dwell; detailed pulse stats from companion package sample when available"
+      }
+    },
+    "agent_offline_on": {
+      "ok": true,
+      "ms": 28,
+      "data": { "ok": true, "offline": true }
+    },
+    "ping_while_offline": {
+      "ok": true,
+      "ms": 30,
+      "data": { "ok": true, "cmd": "pong", "api": 5, "version": "3.7.0", "native": true }
+    },
+    "vault_tail": {
+      "ok": true,
+      "ms": 30,
+      "data": { "ok": true }
+    },
+    "agent_offline_off": {
+      "ok": true,
+      "ms": 30,
+      "data": { "ok": true, "offline": false }
+    },
+    "mission_arm_watch": {
+      "ok": true,
+      "ms": 30,
+      "data": { "ok": true }
+    },
+    "mission_status": {
+      "ok": true,
+      "ms": 30,
+      "data": { "ok": true }
+    },
+    "mission_disarm": {
+      "ok": true,
+      "ms": 30,
+      "data": { "ok": true }
+    },
+    "audit_tail": {
+      "ok": true,
+      "ms": 30,
+      "data": { "ok": true }
+    },
+    "subghz_rx_315": {
+      "ok": false,
+      "ms": 5000,
+      "error": "TimeoutError: serial RPC timeout after 5s",
+      "note": "Second radio dwell after 433 RX; known Windows CDC WriteFile/timeout stress"
+    },
+    "spectrum_light": {
+      "ok": false,
+      "ms": 5000,
+      "error": "TimeoutError: serial RPC timeout after 5s",
+      "note": "Follow-on radio command after multi-RX stress"
+    }
+  },
+  "host_capabilities": {
+    "tools_count": 27,
+    "lab_encode_ok": true,
+    "lab_decode_ok": true,
+    "third_party_refused": true,
+    "third_party_note": "Payload is not a GrokLink lab beacon (GLK1). GrokLink refuses third-party / remote / access-control decode and does not implement rolling-code prediction.",
+    "replay_same_bytes": true,
+    "rolling_code_education": true
+  },
+  "summary": {
+    "passed": 15,
+    "total": 17,
+    "pass_rate": 0.882,
+    "failed": ["subghz_rx_315", "spectrum_light"],
+    "version_on_silicon": "3.7.0",
+    "host_lab_codec_ok": true,
+    "tools_count": 27
+  }
+}
