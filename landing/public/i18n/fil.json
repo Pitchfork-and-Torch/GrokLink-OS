@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Network"
+  },
+  "lang": {
+    "label": "Wika"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "USB-stable native research RTOS para mga multi-radio hardware. Ipag-alok na lamang ang pagsisilbi ng authorized RF research."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Docs"
+  }
+}

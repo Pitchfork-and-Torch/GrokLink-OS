@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": " réseau "
+  },
+  "lang": {
+    "label": "لغة"
+  },
+  "hero": {
+    "title": "نظام تشغيل GrokLink",
+    "lede": "بحث م.native مستقر عبر USB للأنظمة المتعددة الراديو. فقط بحث ترخيصي لترددات الراديو."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "الوثائق "
+  }
+}

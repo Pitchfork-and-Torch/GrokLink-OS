@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Netwerk"
+  },
+  "lang": {
+    "label": "Taal"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "USB-stabiele native onderzoek RTOS voor multimode radio-hardware. Alleen geautoriseerd RF-onderzoek."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Documentatie"
+  }
+}

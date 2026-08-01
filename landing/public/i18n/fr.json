@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Réseau"
+  },
+  "lang": {
+    "label": "Langue"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "RTOS natif stable USB pour la recherche sur des matériels multi-radios. Seules les recherches RF autorisées."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Documents"
+  }
+}

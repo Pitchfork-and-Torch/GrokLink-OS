@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Hálózat"
+  },
+  "lang": {
+    "label": "Nyelv"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "USB-kompatibilis stabil nemzetközi kutatói RTOS multipéldányos rádiós hardverek számára. Engedélyezett Részleges Frecvencia (RF) kutatásokkal korlátozott használat."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Dokumentáció"
+  }
+}

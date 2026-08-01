@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "ネットワーク"
+  },
+  "lang": {
+    "label": "言語"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "多機能無線ハードウェア用のUSB安定型ネイティブ研究RTOS。認可されたRF研究のみ。"
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "ドキュメント"
+  }
+}

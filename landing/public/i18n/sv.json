@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Nätverk"
+  },
+  "lang": {
+    "label": "Språk"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "USB-stabil forsknings-RTOS för multiradio hårdvara. Godkännande RF-forskning endast."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Dokumentation"
+  }
+}

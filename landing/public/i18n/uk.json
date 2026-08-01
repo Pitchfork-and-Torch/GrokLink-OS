@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Taeit"
+  },
+  "lang": {
+    "label": "Iazgu"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "USB-stable native research RTOS for multi-radio hardware. Authorized RF research only."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Docs"
+  }
+}

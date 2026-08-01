@@ -1,0 +1,4 @@
+{
+  "description": "GPIO pins forbidden for output drive.",
+  "banned_pins": []
+}

@@ -1,0 +1,4 @@
+{
+  "actions": [{"op": "log", "msg": "gpio_skill_loaded"}],
+  "writes_require_confirm": true
+}

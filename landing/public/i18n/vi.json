@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Mạng"
+  },
+  "lang": {
+    "label": "Ngôn ngữ"
+  },
+  "hero": {
+    "title": "Hệ điều hành GrokLink",
+    "lede": "RTOS nghiên cứu gốc ổn định USB cho phần cứng đa sóng vô tuyến. Chỉ nghiên cứu RF được ủy quyền."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Tài liệu"
+  }
+}

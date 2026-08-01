@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Sieć"
+  },
+  "lang": {
+    "label": "Język"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "USB-wytrzymały badawczy system operacyjny RTOS dla wieloradiowej h ardware. Zatwierdzona tylko do badań radiowych."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Dokumentacja"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Jaringan"
+  },
+  "lang": {
+    "label": "Bahasa"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "RTOS penelitian USB-stabil asli untuk perangkat keras multi-radiasi. Hanya penelitian RF yang diotorisasi."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Dokumen"
+  }
+}

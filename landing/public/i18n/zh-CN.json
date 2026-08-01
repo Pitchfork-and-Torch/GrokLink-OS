@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "网络"
+  },
+  "lang": {
+    "label": "语言"
+  },
+  "hero": {
+    "title": "GrokLink 操作系统",
+    "lede": "适用于多无线电硬件的 USB 稳定原生研究实时操作系统。仅授权射频研究使用。"
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "文档"
+  }
+}

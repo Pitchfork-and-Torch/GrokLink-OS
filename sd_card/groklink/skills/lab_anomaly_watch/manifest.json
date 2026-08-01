@@ -1,0 +1,7 @@
+{
+  "id": "lab_anomaly_watch",
+  "version": "3.0.0",
+  "risk_class": "passive_rx",
+  "hw": ["subghz"],
+  "description": "Listen + TinyML/heuristic classify. Never auto-TX."
+}

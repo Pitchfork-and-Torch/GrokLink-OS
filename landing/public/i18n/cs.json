@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Sieť"
+  },
+  "lang": {
+    "label": "Jazyk"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "USB-stabilná vlastní výskumná RTOS pre viacrodielové hardvéry. Používajte len pri autorizovanom výskume s použitím rádiových frekvencií."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Dokumentácia"
+  }
+}

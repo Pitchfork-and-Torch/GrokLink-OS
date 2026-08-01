@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Red"
+  },
+  "lang": {
+    "label": "Idioma"
+  },
+  "hero": {
+    "title": "Sistema operativo GrokLink",
+    "lede": "RTOS de investigación nativo estable mediante USB para hardware multiradio. Sólo investigación de RF autorizada."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Documentos"
+  }
+}

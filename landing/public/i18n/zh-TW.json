@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "網絡"
+  },
+  "lang": {
+    "label": "語言"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "適用於多無線電硬件的USB穩定原生研究RTOS。僅授權射頻研究使用。"
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "文件"
+  }
+}

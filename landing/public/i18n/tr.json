@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Ağ"
+  },
+  "lang": {
+    "label": "Dil"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "USB-stabil native araştırma RTOS için çoklu radyo donanımı. Yetkili RF araştırma sadece."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Belgeler"
+  }
+}

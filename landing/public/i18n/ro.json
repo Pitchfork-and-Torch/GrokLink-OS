@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "Rețea"
+  },
+  "lang": {
+    "label": "Limba"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "RTOS nativ stabil USB pentru hardwar multi-radiou. Doar cercetare autorizată RF."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "Docs"
+  }
+}

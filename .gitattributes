@@ -1,0 +1,29 @@
+# Force UTF-8 for text; prevent Windows CP1252 re-encoding of UTF-8 punctuation
+* text=auto eol=lf
+
+*.md   text working-tree-encoding=UTF-8
+*.txt  text working-tree-encoding=UTF-8
+*.c    text working-tree-encoding=UTF-8
+*.h    text working-tree-encoding=UTF-8
+*.py   text working-tree-encoding=UTF-8
+*.js   text working-tree-encoding=UTF-8
+*.html text working-tree-encoding=UTF-8
+*.css  text working-tree-encoding=UTF-8
+*.json text working-tree-encoding=UTF-8
+*.yml  text working-tree-encoding=UTF-8
+*.yaml text working-tree-encoding=UTF-8
+*.toml text working-tree-encoding=UTF-8
+*.ps1  text working-tree-encoding=UTF-8
+*.sh   text working-tree-encoding=UTF-8
+*.svg  text working-tree-encoding=UTF-8
+
+*.png  binary
+*.jpg  binary
+*.jpeg binary
+*.gif  binary
+*.webp binary
+*.pdf  binary
+*.bin  binary
+*.dfu  binary
+*.elf  binary
+*.hex  binary

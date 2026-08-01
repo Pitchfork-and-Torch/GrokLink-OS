@@ -1,0 +1,16 @@
+{
+  "network": {
+    "label": "네트워크"
+  },
+  "lang": {
+    "label": "언어"
+  },
+  "hero": {
+    "title": "GrokLink OS",
+    "lede": "다중 라디오 하드웨어를 위한 USB 안정적인 네이티브 연구 RTOS. 무선 주파수 연구만 허용됩니다."
+  },
+  "cta": {
+    "github": "GitHub",
+    "docs": "문서"
+  }
+}

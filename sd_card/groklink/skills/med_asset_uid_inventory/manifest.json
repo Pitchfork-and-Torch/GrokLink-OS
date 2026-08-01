@@ -1,0 +1,11 @@
+{
+  "id": "med_asset_uid_inventory",
+  "version": "0.2.0",
+  "description": "Owned medical asset NFC/UID inventory study path. Read-oriented. Not a medical device.",
+  "risk_class": "passive_rx",
+  "hw": ["nfc"],
+  "entry": "rules",
+  "has_fap": false,
+  "educational": true,
+  "not_medical_device": true
+}
