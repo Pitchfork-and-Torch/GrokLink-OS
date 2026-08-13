@@ -1,0 +1,16 @@
+{
+  "profile": "default",
+  "comment": "Set profile to \"medsec-strict\" for hospital-adjacent / MedSec posture: all TX, GPIO-out, contact, and system actuators denied. Passive RX allowed with edu-ack. NOT a medical device. Deploy with: scripts/deploy_medsec_packs.ps1 -MedsecStrict",
+  "not_medical_device": true,
+  "profiles": {
+    "default": {
+      "medsec_strict": false,
+      "tx": "confirm_and_blacklist"
+    },
+    "medsec-strict": {
+      "medsec_strict": true,
+      "tx": "forbidden",
+      "note": "Switch to default only for Faraday dual-control lab TX under written RoE."
+    }
+  }
+}

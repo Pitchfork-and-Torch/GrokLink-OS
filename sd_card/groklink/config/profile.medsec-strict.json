@@ -1,0 +1,6 @@
+{
+  "profile": "medsec-strict",
+  "medsec_strict": true,
+  "not_medical_device": true,
+  "disclaimer": "NOT a medical device. Authorized MedSec research only. All TX forbidden under this profile."
+}

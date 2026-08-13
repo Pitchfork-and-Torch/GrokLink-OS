@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GrokLink OS 3.8 - Living research hub for multi-radio RTOS</title>
+  <meta name="description" content="GrokLink OS 3.8 living research hub: interactive architecture, default-deny safety simulator, skills and agent demos, quickstart wizard. Native STM32WB55 RTOS - not a Flipper fork. MIT. Authorized research only." />
+  <meta name="robots" content="index,follow,max-image-preview:large" />
+  <meta name="author" content="Pitchfork-and-Torch" />
+  <meta name="theme-color" content="#070b14" />
+  <link rel="canonical" href="https://groklink.jonbailey.xyz/" />
+  <link rel="alternate" type="text/plain" title="LLM / answer-engine summary" href="https://groklink.jonbailey.xyz/llms.txt" />
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="https://groklink.jonbailey.xyz/sitemap.xml" />
+  <link rel="icon" href="/assets/logo-icon.jpg" type="image/jpeg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="GrokLink OS" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:title" content="GrokLink OS 3.8 - Living research hub" />
+  <meta property="og:description" content="Interactive architecture, safety policy simulator, skills and vault demos. USB-stable native multi-radio RTOS. Not a Flipper fork. MIT." />
+  <meta property="og:url" content="https://groklink.jonbailey.xyz/" />
+  <meta property="og:image" content="https://groklink.jonbailey.xyz/assets/share-card.jpg?v=3.8.1-hub" />
+  <meta property="og:image:secure_url" content="https://groklink.jonbailey.xyz/assets/share-card.jpg?v=3.8.1-hub" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="GrokLink OS 3.8 living research hub" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="GrokLink OS 3.8 - Living research hub" />
+  <meta name="twitter:description" content="Interactive safety, architecture, skills demos. Open source MIT. Authorized lab only." />
+  <meta name="twitter:image" content="https://groklink.jonbailey.xyz/assets/share-card.jpg?v=3.8.1-hub" />
+  <meta name="twitter:image:alt" content="GrokLink OS 3.8 share card" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"GrokLink OS","applicationCategory":"DeveloperApplication","operatingSystem":"STM32WB55, host simulator","softwareVersion":"3.8.0","license":"https://opensource.org/licenses/MIT","url":"https://groklink.jonbailey.xyz/","image":"https://groklink.jonbailey.xyz/assets/share-card.jpg?v=3.8.1-hub","downloadUrl":"https://github.com/Pitchfork-and-Torch/GrokLink-OS/releases/latest","codeRepository":"https://github.com/Pitchfork-and-Torch/GrokLink-OS","sameAs":["https://github.com/Pitchfork-and-Torch/GrokLink-OS","https://groklink.jonbailey.xyz/"],"description":"From-scratch research RTOS for portable multi-radio hardware with stable USB CDC GrokRPC, safety-gated passive RF agent, multi-LLM signal observability, and PC bridge. Not a Flipper firmware fork.","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"Pitchfork-and-Torch","url":"https://github.com/Pitchfork-and-Torch"}}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is GrokLink OS?","acceptedAnswer":{"@type":"Answer","text":"GrokLink OS is a from-scratch research operating system for portable multi-radio hardware. It owns its kernel, HAL, drivers, services, GUI, and safety path end-to-end."}},{"@type":"Question","name":"Is GrokLink OS a Flipper Zero fork?","acceptedAnswer":{"@type":"Answer","text":"No. It is a native OS, not an overlay or patch on Flipper Zero, Momentum, or Unleashed firmware."}},{"@type":"Question","name":"Who is GrokLink OS for?","acceptedAnswer":{"@type":"Answer","text":"Authorized researchers and educators working on equipment they own or are explicitly authorized to operate on."}},{"@type":"Question","name":"Where is the source code?","acceptedAnswer":{"@type":"Answer","text":"Open source on GitHub at https://github.com/Pitchfork-and-Torch/GrokLink-OS under the MIT license."}},{"@type":"Question","name":"What is the latest GrokLink OS version?","acceptedAnswer":{"@type":"Answer","text":"GrokLink OS 3.8.0 is the Storage, Skills and Persistent Autonomy release on the USB-stable field unit."}},{"@type":"Question","name":"How do I flash GrokLink OS?","acceptedAnswer":{"@type":"Answer","text":"Enter STM32 DFU (hold BACK+OK while plugging USB), then install the latest GrokLink-OS radio DFU. After reboot open USB serial at 230400 baud and use GrokRPC JSON."}},{"@type":"Question","name":"Does GrokLink OS work with qFlipper?","acceptedAnswer":{"@type":"Answer","text":"qFlipper can flash DFU in bootloader mode. It cannot manage GrokLink OS like Flipper firmware because GrokLink uses GrokRPC JSON instead of Flipper protobuf."}}]}
+  </script>
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebSite","name":"GrokLink OS","url":"https://groklink.jonbailey.xyz/","description":"Native research RTOS for multi-radio hardware. Open source MIT.","publisher":{"@type":"Organization","name":"Pitchfork-and-Torch","url":"https://github.com/Pitchfork-and-Torch"}}
+  </script>
+  <link rel="stylesheet" href="/hub.css?v=3.8.1" />
+</head>
+<body data-product="groklink">
+
+<style id="jb-netstrip">
+.jb-network-strip{border-block:1px solid rgba(255,255,255,.08);background:rgba(6,8,14,.94);padding:.85rem 0}
+.jb-network-strip__inner{width:min(1120px,calc(100% - 2rem));margin-inline:auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:.4rem 1.2rem}
+.jb-network-strip__label{font-size:.62rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.jb-network-strip__list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem 1rem;justify-content:center}
+.jb-network-strip a{font-size:.72rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.62);text-decoration:none;min-height:44px;display:inline-flex;align-items:center}
+.jb-network-strip a:hover,.jb-network-strip a:focus-visible{color:#a78bfa}
+.jb-network-strip a[aria-current="page"]{color:#a78bfa}
+.jb-lang-bar{display:flex;justify-content:flex-end;padding:.4rem 1rem;gap:.5rem;align-items:center}
+.jb-lang-bar select{min-height:44px;background:rgba(0,0,0,.4);color:inherit;border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:.25rem .4rem;font-size:.75rem}
+</style>
+
+<div id="safety-sticky" class="safety-sticky" role="region" aria-label="Safety and legal banner">
+  <div class="safety-sticky-inner">
+    <div class="safety-sticky-main">
+      <strong class="safety-kicker">Authorized research only</strong>
+      <span class="safety-phrase" id="edu-phrase">I_WILL_USE_ONLY_AUTHORIZED_TARGETS</span>
+      <span class="safety-legal">Default-deny TX / GPIO / contact / system. Not a medical device. Browser demos never control radios.</span>
+    </div>
+    <button type="button" class="btn btn-sm" id="sticky-ack">I understand</button>
+  </div>
+</div>
+
+<nav class="jb-network-strip" aria-label="Jon Bailey network">
+<div class="jb-network-strip__inner">
+<span class="jb-network-strip__label" data-i18n="network.label">Network</span>
+<ul class="jb-network-strip__list">
+<li><a href="https://jonbailey.xyz/">Hub</a></li>
+<li><a href="https://music.jonbailey.xyz/">Music</a></li>
+<li><a href="https://ghost.jonbailey.xyz/">Ghost</a></li>
+<li><a href="https://skycache.jonbailey.xyz/">SkyCache</a></li>
+<li><a href="https://design.jonbailey.xyz/">Design</a></li>
+<li><a href="https://aetheros.jonbailey.xyz/">AetherOS</a></li>
+<li><a href="https://trenchcoat.jonbailey.xyz/">Trench Coat</a></li>
+<li><a href="https://netforge.jonbailey.xyz/">NetForge</a></li>
+<li><a href="https://ascent.jonbailey.xyz/">ASCENT</a></li>
+<li><a href="https://fl1pp3r69.jonbailey.xyz/">Fl1pp3r69</a></li>
+<li><a href="https://groklink.jonbailey.xyz/" aria-current="page">GrokLink</a></li>
+<li><a href="https://github.com/Pitchfork-and-Torch" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+</ul>
+</div>
+</nav>
+
+<div class="jb-lang-bar">
+<label style="display:inline-flex;align-items:center;gap:.35rem;font-size:.75rem">
+<span data-i18n="lang.label">Language</span>
+<select id="ghost-lang" aria-label="Language">
+<option value="en">EN</option>
+</select>
+</label>
+</div>
+
+<div class="page">
+  <div class="wrap">
+    <nav class="nav site-nav" aria-label="Primary">
+      <div class="brand-island" style="display:inline-flex;align-items:center;gap:0.55rem;flex-shrink:0;padding-right:0.75rem;border-right:1px solid rgba(255,255,255,0.12);margin-right:0.35rem">
+        <a class="x-follow" href="https://x.com/suddenlyjon" target="_blank" rel="noopener noreferrer" title="Follow @suddenlyjon on X" aria-label="Follow @suddenlyjon on X" style="display:inline-flex;align-items:center;height:28px;max-height:28px;flex-shrink:0;border-radius:999px;border:1px solid rgba(56,189,248,0.4);text-decoration:none;overflow:hidden;color:inherit;background:rgba(56,189,248,0.12)">
+          <span style="width:24px;height:24px;max-width:24px;max-height:24px;display:inline-flex;align-items:center;justify-content:center;border-radius:999px;background:#e8eef6;color:#0b1220" aria-hidden="true">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor" style="width:11px;height:11px;max-width:11px;max-height:11px" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+          </span>
+          <span class="x-follow-handle" style="display:none;font-size:0.62rem;font-weight:600;padding-right:0.5rem;white-space:nowrap">@suddenlyjon</span>
+        </a>
+        <a class="nav-brand" href="/">
+          <img src="/assets/logo-icon.jpg" width="36" height="36" alt="" />
+          GrokLink OS
+        </a>
+      </div>
+      <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="site-nav-links">Menu</button>
+      <div class="nav-links" id="site-nav-links">
+        <a href="#architecture">Architecture</a>
+        <a href="#safety">Safety</a>
+        <a href="#skills">Skills</a>
+        <a href="#start">Quick start</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#docs">Docs</a>
+        <a href="#medsec">MedSec</a>
+        <a href="#ecosystem">Ecosystem</a>
+        <a href="https://github.com/Pitchfork-and-Torch/GrokLink-OS" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="logo-wrap">
+        <img src="/assets/logo.jpg" width="88" height="88" alt="GrokLink OS logo" />
+      </div>
+      <div class="badge-row">
+        <span class="badge">v3.8.0 | MIT</span>
+        <span class="badge soft">USB-stable</span>
+        <span class="badge soft">Native | Not a Flipper fork</span>
+        <span class="badge warn">Authorized research only</span>
+      </div>
+      <h1 data-i18n="hero.title">GrokLink OS</h1>
+      <p class="tagline" data-i18n="hero.lede">
+        Living research hub for a from-scratch multi-radio RTOS - safety-gated agent, hot-load skills, hash-chained vault, PC bridge.
+      </p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/Pitchfork-and-Torch/GrokLink-OS" target="_blank" rel="noopener noreferrer">View on GitHub</a>
+        <a class="btn secondary" href="https://github.com/Pitchfork-and-Torch/GrokLink-OS/releases/latest" target="_blank" rel="noopener noreferrer">Releases / DFU</a>
+        <a class="btn secondary" href="#start">Quickstart wizard</a>
+        <a class="btn secondary" href="#safety">Policy simulator</a>
+      </div>
+    </header>
+
+    <div class="stat-row" role="list">
+      <div class="stat" role="listitem"><div class="v">STM32WB55</div><div class="l">Primary MCU target</div></div>
+      <div class="stat" role="listitem"><div class="v">Default-Deny</div><div class="l">TX | GPIO | Contact | System</div></div>
+      <div class="stat" role="listitem"><div class="v">CC1101</div><div class="l">SubGHz SPI (VERSION 0x14)</div></div>
+      <div class="stat" role="listitem"><div class="v">GrokRPC 6</div><div class="l">USB CDC 230400 | 0483:5740</div></div>
+    </div>
+
+    <section class="card intro-card">
+      <div class="section-title">What it is</div>
+      <p class="hero-blurb">
+        GrokLink OS is a <strong>complete research operating system</strong> - kernel, HAL, drivers, services, GUI, and safety path owned end-to-end.
+        It is <strong>not</strong> an overlay or patch on Flipper Zero / Momentum / Unleashed firmware.
+        A PC bridge (<strong>groklink-os</strong>) talks JSON-line GrokRPC over USB CDC for status, passive RX, skill craft, and human-gated control.
+        This site is an educational console: demos run in your browser only and never transmit RF.
+      </p>
+      <div class="pill-row">
+        <span class="pill">GrokLink RTOS</span>
+        <span class="pill">Policy engine</span>
+        <span class="pill">GrokAgent missions</span>
+        <span class="pill">Hot-load skills</span>
+        <span class="pill">Hash-chained vault</span>
+        <span class="pill">ST7567 GUI</span>
+        <span class="pill">Host simulation</span>
+      </div>
+    </section>
+
+    <section id="architecture" class="block">
+      <div class="section-title">Architecture layer-cake explorer</div>
+      <div class="card">
+        <p class="muted mb">Click a layer for status and a short accurate brief. Stack matches the native OS docs - not a Flipper runtime.</p>
+        <div class="arch-grid">
+          <div id="arch-layers" class="arch-layers" role="list"></div>
+          <div id="arch-detail" class="arch-detail" aria-live="polite"></div>
+        </div>
+        <figure class="arch-figure">
+          <img class="info-img" src="/assets/architecture.jpg" width="1200" height="675" alt="GrokLink OS architecture stack diagram" loading="lazy" />
+          <figcaption class="tiny muted">Static reference diagram (also interactive layers above).</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="safety" class="block">
+      <div class="section-title">Safety policy simulator</div>
+      <div class="card">
+        <p class="muted mb">Visceral default-deny. Pick an action class, set gates, try an action. This is a <strong>browser mock</strong> of glk_policy_check - it does not talk to hardware.</p>
+        <div class="mode-row" role="group" aria-label="Action class">
+          <button type="button" class="mode-btn" data-mode="info">info</button>
+          <button type="button" class="mode-btn" data-mode="passive_rx" aria-pressed="true">passive_rx</button>
+          <button type="button" class="mode-btn" data-mode="active_tx">active_tx</button>
+          <button type="button" class="mode-btn" data-mode="gpio">gpio / contact</button>
+          <button type="button" class="mode-btn" data-mode="system">system</button>
+        </div>
+        <div class="safety-panels">
+          <div>
+            <div class="safety-head">
+              <span id="safety-mode-label" class="mode-label">passive_rx</span>
+              <span id="safety-decision" class="decision-pill deny">DENY</span>
+            </div>
+            <p id="safety-mode-desc" class="muted"></p>
+            <div id="safety-gates" class="gates"></div>
+            <ul id="safety-why" class="why-list"></ul>
+            <div class="badge-row left mt">
+              <span id="safety-edu-badge" class="pill bad">edu: none</span>
+              <span id="safety-token-badge" class="pill muted">token: none</span>
+              <span id="safety-bl-badge" class="pill ok">blacklist: OK</span>
+              <span id="safety-duty-badge" class="pill ok">duty: OK</span>
+            </div>
+            <div class="btn-row mt">
+              <button type="button" class="btn btn-sm" id="btn-edu-ack">edu-ack</button>
+              <button type="button" class="btn btn-sm secondary" id="btn-issue-token">Issue confirm (60s)</button>
+              <button type="button" class="btn btn-sm" id="btn-try-action">Try action</button>
+              <button type="button" class="btn btn-sm secondary" id="btn-toggle-bl">Toggle blacklist</button>
+              <button type="button" class="btn btn-sm secondary" id="btn-toggle-duty">Toggle duty breaker</button>
+              <button type="button" class="btn btn-sm secondary" id="btn-safety-reset">Reset session</button>
+            </div>
+          </div>
+          <div>
+            <canvas id="policy-canvas" width="640" height="160" aria-label="Policy gate flowchart"></canvas>
+            <div id="safety-log" class="sim-log" aria-live="polite"></div>
+          </div>
+        </div>
+        <p class="tiny muted mt">Gates mirror docs/SAFETY.md: edu phrase, confirm TTL, blacklists, duty/rate limits, non-bypassable spectrum planner circuit breaker, append-only audit.</p>
+      </div>
+    </section>
+
+    <section id="skills" class="block">
+      <div class="section-title">Skills and agent hub</div>
+      <div class="card">
+        <div class="skills-toolbar">
+          <label class="filter-label">Filter
+            <select id="skills-filter">
+              <option value="all">All</option>
+              <option value="rom">ROM only</option>
+              <option value="sd">SD only</option>
+              <option value="passive">passive_rx</option>
+              <option value="tx">active_tx</option>
+            </select>
+          </label>
+          <button type="button" class="btn btn-sm secondary" id="btn-hotload">Simulate hot-load scan</button>
+        </div>
+        <div id="skills-grid" class="skills-grid"></div>
+        <div class="agent-grid mt">
+          <div class="agent-panel">
+            <h3>Mission runner (passive only)</h3>
+            <div id="agent-status" class="agent-status"></div>
+            <div class="btn-row mt">
+              <button type="button" class="btn btn-sm" id="btn-mission-step">Step once</button>
+              <button type="button" class="btn btn-sm secondary" id="btn-mission-run">Run 3 steps</button>
+              <button type="button" class="btn btn-sm secondary" id="btn-unplug-toggle" aria-pressed="false">Arm unplugged autonomy</button>
+            </div>
+            <p class="tiny muted mt">Unplugged arm in this hub logs passive steps to a browser vault mock. On device: prepare-unplugged or SAFETY hold OK; still no auto-TX.</p>
+          </div>
+          <div class="agent-panel">
+            <h3>Vault hash-chain demo</h3>
+            <p class="tiny muted">Educational FNV-1a style chain in localStorage (integrity spirit of storage docs - not a crypto claim, not the device vault).</p>
+            <div id="vault-root" class="mono-line">chain root: 00000000</div>
+            <canvas id="vault-canvas" width="640" height="90" aria-label="Vault chain visualization"></canvas>
+            <div id="vault-list" class="vault-list"></div>
+            <button type="button" class="btn btn-sm secondary mt" id="btn-vault-clear">Clear browser vault mock</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="start" class="block">
+      <div class="section-title">Interactive quickstart wizard</div>
+      <div class="card wizard-card">
+        <div class="wiz-top">
+          <div id="wiz-dots" class="wiz-dots" aria-hidden="true"></div>
+          <div id="wiz-progress" class="wiz-progress" role="progressbar" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1">Step 1 / 6</div>
+        </div>
+        <h3 id="wiz-title">1.</h3>
+        <p id="wiz-body" class="muted"></p>
+        <pre id="wiz-cmd" class="mono"></pre>
+        <div class="btn-row">
+          <button type="button" class="btn btn-sm secondary" id="wiz-prev">Back</button>
+          <button type="button" class="btn btn-sm" id="wiz-copy">Copy commands</button>
+          <button type="button" class="btn btn-sm" id="wiz-next">Next</button>
+        </div>
+        <ul id="wiz-tips" class="tips-list"></ul>
+      </div>
+    </section>
+
+    <section id="roadmap" class="block">
+      <div class="section-title">Roadmap timeline</div>
+      <div id="roadmap-track" class="roadmap-track"></div>
+      <p class="tiny muted">Shipped items are factual for 3.7 / 3.8. v3.9 is a sketch - do not treat as committed ship dates.</p>
+    </section>
+
+    <section id="docs" class="block">
+      <div class="section-title">Docs and deep dives</div>
+      <div class="card">
+        <label class="filter-label full">Filter topics
+          <input type="search" id="docs-filter" placeholder="policy, vault, unplugged, storage..." autocomplete="off" />
+        </label>
+        <div id="docs-list" class="docs-list">
+          <details open>
+            <summary>Architecture principles</summary>
+            <p>Safety by construction; determinism under load; constrained autonomy; audit everything; modular skills; honest silicon. Primary MCU STM32WB55 (M4 app + M0+ network). Host-sim is first-class.</p>
+          </details>
+          <details>
+            <summary>Safety model</summary>
+            <p>Education phrase I_WILL_USE_ONLY_AUTHORIZED_TARGETS. Default-deny for TX, GPIO, contact, system. Confirm tokens TTL single-use action-scoped. Blacklists fail closed. Duty + spectrum circuit breaker non-bypassable. Append-only hash-chained audit.</p>
+          </details>
+          <details>
+            <summary>Unplugged autonomy</summary>
+            <p>PC/LLM needs USB. On-device GrokAgent can passive-explore after prepare-unplugged or SAFETY hold OK. No agent TX without human confirm. Plug-sync on reconnect. v3.8 durable vault when storage ok.</p>
+          </details>
+          <details>
+            <summary>Storage and vault (v3.8)</summary>
+            <p>Crash-safe layout under /groklink: config, missions, skills, logs, blacklist, vault, state. Modes: absent / ok / degraded / corrupt / full / readonly. Vault: RAM ring + durable append; chain.meta root; optional operator seal.</p>
+          </details>
+          <details>
+            <summary>Skills hot-load</summary>
+            <p>skills/id/manifest.json risk_class passive_rx | active_tx | gpio | contact | system. ROM catalog always available. Optional GLKSIG1 package verify when feature enabled. Craft loop: capture -&gt; human review -&gt; SD -&gt; rescan.</p>
+          </details>
+          <details>
+            <summary>Multi-LLM signal observability</summary>
+            <p>Bridge observe tools are strictly passive: edu_ack, status, subghz probe/rx, spectrum. Never TX or third-party decode. Schema v2; local tools HTTP optional :8741. Lab codec GLK1 is owned-lab education only.</p>
+          </details>
+          <details>
+            <summary>Hardware snapshot</summary>
+            <p>CC1101 SubGHz (bit-banged SPI_R, VERSION 0x14), IR, NFC, GPIO, iButton, BLE wrappers. ST7567 pages HOME / RADIO / SAFETY / STORAGE / ABOUT. USB app 0483:5740; DFU 0483:DF11.</p>
+          </details>
+          <details>
+            <summary>Full source docs</summary>
+            <p>Canonical markdown lives in the repo: ARCHITECTURE, SAFETY, UNPLUGGED_AUTONOMY, STORAGE, SKILLS, SIGNAL_OBSERVABILITY, MEDSEC_*, DFU, BUILD. <a href="https://github.com/Pitchfork-and-Torch/GrokLink-OS/tree/main/docs" target="_blank" rel="noopener noreferrer">Browse docs on GitHub</a>.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <section id="medsec" class="block">
+      <div class="section-title">MedSec / authorized research</div>
+      <div class="card medsec-card">
+        <div class="medsec-grid">
+          <div>
+            <h3>Crystal-clear scope</h3>
+            <ul class="plain-list">
+              <li><strong>Not a medical device.</strong> Never for diagnosis, treatment, care monitoring, or patient-connected use.</li>
+              <li><strong>Passive-only</strong> packs and profiles for authorized facility / lab research under written Rules of Engagement.</li>
+              <li>Profile <code>medsec-strict</code> forbids all TX.</li>
+              <li>No clinical claims. No PHI workflows on this marketing site.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Operator path (device)</h3>
+            <pre class="mono" id="medsec-cmd">groklink-os edu-ack
+groklink-os lab medsec-demo
+groklink-os lab engagement-init --operator lab-op1 --engagement ENG-001 --site bench --roe-ack
+groklink-os lab casefile --dir cases/ENG-001 --title "passive baseline" --hypothesis "quiet ISM"</pre>
+            <button type="button" class="btn btn-sm secondary" data-copy="#medsec-cmd">Copy MedSec commands</button>
+          </div>
+        </div>
+        <p class="tiny muted mt">See repo docs: HEALTHCARE_OPERATOR_RUNBOOK, MEDSEC_ROE_TEMPLATE, MEDSEC_RISK_FILE.</p>
+      </div>
+    </section>
+
+    <section id="ecosystem" class="block">
+      <div class="section-title">Ecosystem constellation</div>
+      <div class="eco-grid">
+        <a class="eco-card" href="https://jonbailey.xyz/" target="_blank" rel="noopener noreferrer"><strong>Jon Bailey hub</strong><span>Music + network home</span></a>
+        <a class="eco-card" href="https://netforge.jonbailey.xyz/" target="_blank" rel="noopener noreferrer"><strong>NetForge</strong><span>Network performance + hardening</span></a>
+        <a class="eco-card" href="https://trenchcoat.jonbailey.xyz/" target="_blank" rel="noopener noreferrer"><strong>Trench Coat</strong><span>Legal-first multi-hop privacy</span></a>
+        <a class="eco-card" href="https://ghost.jonbailey.xyz/" target="_blank" rel="noopener noreferrer"><strong>Ghost Continuum</strong><span>Local-first digital immune system</span></a>
+        <a class="eco-card" href="https://skycache.jonbailey.xyz/" target="_blank" rel="noopener noreferrer"><strong>SkyCache</strong><span>Satellite to local WiFi content hub</span></a>
+        <a class="eco-card" href="https://ascent.jonbailey.xyz/" target="_blank" rel="noopener noreferrer"><strong>ASCENT</strong><span>Agent-native wire standard</span></a>
+        <a class="eco-card" href="https://fl1pp3r69.jonbailey.xyz/" target="_blank" rel="noopener noreferrer"><strong>Fl1pp3r69</strong><span>Related Flipper-class field ops</span></a>
+        <a class="eco-card" href="https://aetheros.jonbailey.xyz/" target="_blank" rel="noopener noreferrer"><strong>AetherOS</strong><span>Offline capability microkernel research</span></a>
+        <a class="eco-card" href="https://github.com/Pitchfork-and-Torch" target="_blank" rel="noopener noreferrer"><strong>Pitchfork-and-Torch</strong><span>Public product org on GitHub</span></a>
+      </div>
+    </section>
+
+    <div class="cta-banner">
+      <h2>Clone, flash, observe - under policy</h2>
+      <p>Source, DFU releases, and bridge live on GitHub. Stay on authorized targets. Default-deny is the product.</p>
+      <div class="actions">
+        <a class="btn" href="https://github.com/Pitchfork-and-Torch/GrokLink-OS" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a class="btn secondary" href="https://github.com/Pitchfork-and-Torch/GrokLink-OS/releases/latest" target="_blank" rel="noopener noreferrer">Latest release</a>
+      </div>
+    </div>
+
+    <div class="legal">
+      <div>
+        <div class="legal-title">Legal / ethical</div>
+        <p>
+          For authorized research, education, and equipment you own (or are explicitly authorized to operate on).
+          Unauthorized access to RF / IR / RFID / NFC / access-control systems may be a crime.
+          Authors accept no liability for misuse. <strong>Not a medical device.</strong>
+          Interactive demos on this site are educational browser simulations only.
+        </p>
+      </div>
+      <div class="ack" id="footer-edu">I_WILL_USE_ONLY_AUTHORIZED_TARGETS</div>
+    </div>
+
+    <footer class="site-footer">
+      <div>GrokLink OS 3.8.0 | MIT | Pitchfork-and-Torch</div>
+      <div class="footer-links">
+        <a href="https://github.com/Pitchfork-and-Torch/GrokLink-OS" target="_blank" rel="noopener noreferrer">Source</a>
+        <a href="https://github.com/Pitchfork-and-Torch/GrokLink-OS/blob/main/LICENSE" target="_blank" rel="noopener noreferrer">License</a>
+        <a href="/llms.txt">llms.txt</a>
+        <a href="mailto:hello@jonbailey.xyz">Contact</a>
+      </div>
+    </footer>
+  </div>
+</div>
+
+<div id="toast" class="toast" hidden role="status"></div>
+<script defer src="https://hits.jonbailey.xyz/c.js" data-site="groklink"></script>
+<script src="/app.js?v=3.8.1" defer></script>
+<script src="/i18n.js" defer></script>
+<script src="/projects-panel.js" defer></script>
+</body>
+</html>

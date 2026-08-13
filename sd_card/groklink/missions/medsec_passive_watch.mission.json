@@ -1,0 +1,21 @@
+{
+  "id": "medsec_passive_watch",
+  "name": "MedSec short passive watch",
+  "version": 1,
+  "autonomous": false,
+  "description": "Short loop passive 433.92 watch for MedSec lab. No TX. NOT a medical device.",
+  "safety": {
+    "max_risk_class": "passive_rx",
+    "not_medical_device": true
+  },
+  "steps": [
+    {"op": "log", "msg": "medsec_passive_watch start"},
+    {"op": "loop", "count": 2},
+    {"op": "subghz_rx", "freq_hz": 433920000, "ms": 150},
+    {"op": "if_pulses_gt", "threshold": 5},
+    {"op": "log", "msg": "activity_seen"},
+    {"op": "end_loop"},
+    {"op": "infer"},
+    {"op": "log", "msg": "medsec_passive_watch complete"}
+  ]
+}

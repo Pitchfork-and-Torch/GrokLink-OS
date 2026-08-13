@@ -1,0 +1,3 @@
+Vendored subset of libusb_stm32 (Apache-2.0) for STM32WB55 USB FS.
+Upstream: https://github.com/dmitrystu/libusb_stm32
+Files: usbd_core.c, usbd_stm32wb55_devfs.c, inc/*

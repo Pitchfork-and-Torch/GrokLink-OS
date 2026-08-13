@@ -1,0 +1,14 @@
+{
+  "params": {
+    "default_freq_hz": 433920000,
+    "default_duration_ms": 200,
+    "secondary_freq_hz": 315000000
+  },
+  "on_run": [
+    { "op": "log", "message": "medsec_passive_ism_watch - lab only - no TX - not a medical device" },
+    { "op": "subghz_rx", "freq_hz": 433920000, "duration_ms": 200 },
+    { "op": "delay", "ms": 100 },
+    { "op": "subghz_rx", "freq_hz": 315000000, "duration_ms": 200 },
+    { "op": "log", "message": "medsec_passive_ism_watch sample complete" }
+  ]
+}
