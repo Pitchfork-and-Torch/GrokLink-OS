@@ -1,0 +1,10 @@
+{
+  "version": "3.0.0",
+  "autonomy": true,
+  "tick_ms": 50,
+  "default_region": "lab",
+  "fail_closed_tx": true,
+  "require_edu_ack": true,
+  "ml_enabled": true,
+  "power_policy": "listen_duty"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "medsec_passive_ism_watch",
+  "version": "0.2.0",
+  "description": "Authorized MedSec lab passive ISM activity watch. No TX. Not a medical device.",
+  "risk_class": "passive_rx",
+  "hw": ["subghz"],
+  "entry": "rules",
+  "has_fap": false,
+  "educational": true,
+  "not_medical_device": true
+}

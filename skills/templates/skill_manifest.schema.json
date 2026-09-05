@@ -1,0 +1,17 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GrokLink OS Skill Manifest",
+  "type": "object",
+  "required": ["id", "version", "risk_class"],
+  "properties": {
+    "id": { "type": "string" },
+    "version": { "type": "string" },
+    "risk_class": {
+      "type": "string",
+      "enum": ["passive_rx", "active_tx", "gpio", "contact", "system", "info"]
+    },
+    "hw": { "type": "array", "items": { "type": "string" } },
+    "description": { "type": "string" },
+    "signature": { "type": "string" }
+  }
+}

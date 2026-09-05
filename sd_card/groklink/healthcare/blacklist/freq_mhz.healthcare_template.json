@@ -1,0 +1,11 @@
+{
+  "description": "TEMPLATE - TX centers to consider forbidding in clinical-adjacent labs. Units Hz. Copy selected entries into /ext/groklink/blacklist/freq_mhz.json after review. Empty active list bans nothing extra. Under medsec-strict profile ALL TX is forbidden regardless of this list.",
+  "banned_centers_hz": [],
+  "suggested_tx_deny_examples_hz": [
+    403000000,
+    433920000,
+    868300000,
+    915000000
+  ],
+  "comment": "403 MHz region often associated with medical telemetry research literature; 433.92 / 868 / 915 are common SRD/ISM. Do NOT copy blindly. Confirm local spectrum policy with clinical engineering before any on-prem work."
+}

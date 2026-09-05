@@ -1,0 +1,7 @@
+{
+  "id": "lab_gpio_event",
+  "version": "3.0.0",
+  "risk_class": "gpio",
+  "hw": ["gpio"],
+  "description": "GPIO event logger; writes require confirm tokens."
+}

@@ -1,0 +1,185 @@
+{
+  "port": "USB_CDC",
+  "tests": [
+    {
+      "name": "ping",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "cmd": "pong",
+        "api": 5,
+        "version": "3.6.0"
+      }
+    },
+    {
+      "name": "edu_ack",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "edu": true
+      }
+    },
+    {
+      "name": "status",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "version": "3.6.0",
+        "api": 5,
+        "edu": true,
+        "sd": false,
+        "blacklist_ok": true,
+        "radio": 0,
+        "heap_free": 4096,
+        "missions": 4,
+        "skills": 3
+      }
+    },
+    {
+      "name": "mission_list",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "missions": "lab_passive_433,lab_spectrum_planner,lab_passive_watch,lab_noise_baseline",
+        "count": 4
+      }
+    },
+    {
+      "name": "subghz_rx",
+      "ok": true,
+      "detail": {
+        "pulses": 6631,
+        "rssi": -112,
+        "sim": false,
+        "pulse_rate_hz": 33155,
+        "rssi_min": -112,
+        "rssi_max": -108,
+        "ok": true
+      }
+    },
+    {
+      "name": "agent_offline_on",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "offline": true
+      }
+    },
+    {
+      "name": "ping_while_offline",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "cmd": "pong",
+        "api": 5,
+        "version": "3.6.0"
+      }
+    },
+    {
+      "name": "vault_tail",
+      "ok": true,
+      "detail": {
+        "count": 0,
+        "ok": true
+      }
+    },
+    {
+      "name": "agent_offline_off",
+      "ok": true,
+      "detail": {
+        "ok": true,
+        "offline": false
+      }
+    },
+    {
+      "name": "get_observation_schema",
+      "ok": true,
+      "detail": {
+        "schema": "groklink.signal_observation.v2",
+        "schema_version": 2
+      }
+    },
+    {
+      "name": "observe_noise_floor",
+      "ok": false,
+      "detail": {
+        "narrative": null,
+        "cal": null,
+        "safety_tx": null
+      }
+    },
+    {
+      "name": "observe_rx",
+      "ok": false,
+      "detail": {
+        "narrative": null,
+        "occupancy": null,
+        "calibrated": null,
+        "pulse_rate": null
+      }
+    },
+    {
+      "name": "get_calibration_state",
+      "ok": true,
+      "detail": {
+        "narrative": "Host calibration: 1 band baseline(s) stored. Passive only; baselines are local heuristics, not lab instruments."
+      }
+    },
+    {
+      "name": "lab_beacon_encode",
+      "ok": true,
+      "detail": {
+        "hex": "474c4b310101010005000000054649454c4443b1",
+        "beacon": {
+          "protocol": "groklink.lab_beacon.v1",
+          "magic": "GLK1",
+          "version": 1,
+          "flags": 1,
+          "lab_id": 1,
+          "counter": 5,
+          "message": "FIELD",
+          "educational": true,
+          "rolling_code": false,
+          "note": "Fixed educational format for owned-lab demos only. Not a rolling code."
+        }
+      }
+    },
+    {
+      "name": "lab_beacon_decode",
+      "ok": true,
+      "detail": "Decoded GrokLink lab beacon GLK1: lab_id=1, counter=5, message='FIELD'. Educational fixed format (replayable). Not a rolling code."
+    },
+    {
+      "name": "lab_beacon_reject_third_party",
+      "ok": true,
+      "detail": "Payload is not a GrokLink lab beacon (GLK1). GrokLink refuses third-party / remote / access-control decode and does not implement rolling-code prediction."
+    },
+    {
+      "name": "lab_replay_demo",
+      "ok": true,
+      "detail": {
+        "same_bytes": true
+      }
+    },
+    {
+      "name": "explain_rolling_codes",
+      "ok": true,
+      "detail": {
+        "forbidden_has_prediction": true
+      }
+    },
+    {
+      "name": "observe_compare",
+      "ok": false,
+      "detail": {
+        "narrative": null,
+        "hotter": null
+      }
+    }
+  ],
+  "summary": {
+    "passed": 16,
+    "failed": 3,
+    "total": 19
+  }
+}
