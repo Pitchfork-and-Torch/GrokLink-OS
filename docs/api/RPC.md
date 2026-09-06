@@ -14,7 +14,7 @@ Binary framing: magic `GL`, version 3, type, seq, length, payload, CRC32 - see `
 
 ```json
 {"cmd":"ping"}
--> {"ok":true,"cmd":"pong",\"api\":6,\"version\":\"3.8.0\"}
+-> {"ok":true,"cmd":"pong","api":7,"version":"3.9.0"}
 ```
 
 ### edu_ack

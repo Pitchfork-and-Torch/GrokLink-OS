@@ -4,8 +4,8 @@
 
 | Profile | Artifact | Notes |
 |---------|----------|--------|
-| **OsRadio** (recommended lab) | `GrokLink-OS-v3.8.0-radio.dfu` | USB CDC + RPC + CC1101 + GUI |
-| OsCdc | `GrokLink-OS-v3.8.0-rpc.dfu` | USB CDC + RPC + GUI, sim radio |
+| **OsRadio** (recommended lab) | `GrokLink-OS-v3.9.0-radio.dfu` | USB CDC + RPC + CC1101 + GUI |
+| OsCdc | `GrokLink-OS-v3.9.0-rpc.dfu` | USB CDC + RPC + GUI, sim radio |
 | Cdc | `GrokLink-OS-v3.0.1-cdc.dfu` | Early CDC bring-up |
 | Bringup | `GrokLink-OS-v3.0.0-bringup.dfu` | GPIO-only, no USB |
 
@@ -20,7 +20,7 @@ Requires `arm-none-eabi-gcc` (ufbt toolchain is used automatically if present):
 Inspect DFU:
 
 ```powershell
-py -3 tools\bin2dfu.py --inspect dist\dfu\GrokLink-OS-v3.8.0-radio.dfu
+py -3 tools\bin2dfu.py --inspect dist\dfu\GrokLink-OS-v3.9.0-radio.dfu
 ```
 
 ## Flash (qFlipper)
@@ -31,7 +31,7 @@ py -3 tools\bin2dfu.py --inspect dist\dfu\GrokLink-OS-v3.8.0-radio.dfu
 4. Flash:
 
 ```powershell
-.\tools\flash_os_dfu_only.ps1 -DfuPath dist\dfu\GrokLink-OS-v3.8.0-radio.dfu
+.\tools\flash_os_dfu_only.ps1 -DfuPath dist\dfu\GrokLink-OS-v3.9.0-radio.dfu
 ```
 
 Or: qFlipper -> **Install from file**.

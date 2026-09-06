@@ -1,10 +1,10 @@
-# Flash GrokLink OS v3.8.0 (Flipper F7 class)
+# Flash GrokLink OS v3.9.0 (Flipper F7 class)
 
 ## Download
 
 From the [latest GitHub Release](https://github.com/Pitchfork-and-Torch/GrokLink-OS/releases/latest):
 
-- **GrokLink-OS-v3.8.0-radio.dfu** (preferred)
+- **GrokLink-OS-v3.9.0-radio.dfu** (preferred)
 - `.bin` / `.hex` also attached
 
 ## Enter DFU
@@ -16,13 +16,13 @@ From the [latest GitHub Release](https://github.com/Pitchfork-and-Torch/GrokLink
 ## Flash
 
 ```powershell
-.\tools\flash_os_dfu_only.ps1 -DfuPath dist\dfu\GrokLink-OS-v3.8.0-radio.dfu
+.\tools\flash_os_dfu_only.ps1 -DfuPath dist\dfu\GrokLink-OS-v3.9.0-radio.dfu
 ```
 
 Or:
 
 ```text
-qFlipper-cli firmware GrokLink-OS-v3.8.0-radio.dfu
+qFlipper-cli firmware GrokLink-OS-v3.9.0-radio.dfu
 ```
 
 Post-flash qFlipper protobuf / exit-recovery errors are **expected** (not Flipper OS).
@@ -38,7 +38,7 @@ pip install -e ".[serial]"
 groklink-os ping
 groklink-os edu-ack
 groklink-os status
-# expect version 3.8.0, api 6 when host/sim storage path is active
+# expect version 3.9.0, api 7 when host/sim storage path is active
 groklink-os observe-rx --freq 433920000 --ms 200
 ```
 

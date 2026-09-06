@@ -4,10 +4,10 @@
 
 | Version | Supported |
 |---------|-----------|
-| 3.1.x (GrokLink Native) | Yes - current |
-| 3.0.x | Best-effort |
+| 3.9.x (GrokLink Native) | Yes - current |
+| 3.8.x | Best-effort |
 | 2.x overlay (GrokLink-Firmware) | Via that repo only |
-| &lt; 2.0 | No |
+| < 2.0 | No |
 
 ## Reporting a vulnerability
 
