@@ -1,0 +1,11 @@
+{
+  "id": "fac_rf_baseline_watch",
+  "version": "0.2.0",
+  "description": "Facility engineering passive RF baseline. No TX. Not for patient care.",
+  "risk_class": "passive_rx",
+  "hw": ["subghz"],
+  "entry": "rules",
+  "has_fap": false,
+  "educational": true,
+  "not_medical_device": true
+}
