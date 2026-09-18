@@ -33,8 +33,10 @@ static uint32_t crc32_bytes(const void* data, size_t len) {
     const uint8_t* p = (const uint8_t*)data;
     uint32_t crc = 0xFFFFFFFFu;
     for (size_t i = 0; i < len; i++) {
-        crc ^= p[i];
-        for (int b = 0; b < 8; b++) {
+        /* write_bytes may pass NULL to zero-fill; CRC must match those zeros */
+        uint8_t b = p ? p[i] : 0;
+        crc ^= b;
+        for (int bbit = 0; bbit < 8; bbit++) {
             uint32_t mask = -(crc & 1u);
             crc = (crc >> 1) ^ (0xEDB88320u & mask);
         }
@@ -209,12 +211,17 @@ glk_err_t glk_fs_write(const char* name, const void* data, size_t len) {
 
 glk_err_t glk_fs_append(const char* name, const void* data, size_t len) {
     if (!s_mounted) return GLK_ERR_GENERIC;
+    if (!data && len) return GLK_ERR_INVAL;
     uint8_t tmp[2048];
     size_t n = 0;
-    if (glk_fs_exists(name)) {
+    int idx = find_ent(name);
+    if (idx >= 0) {
+        /* Reject before read: glk_fs_read silently caps at `cap`, which would
+         * truncate a larger file if we only checked n+len after a partial read. */
+        if ((size_t)s_tab[idx].size + len > sizeof(tmp)) return GLK_ERR_FULL;
         if (glk_fs_read(name, tmp, sizeof(tmp), &n) != GLK_OK) return GLK_ERR_GENERIC;
-        if (n + len > sizeof(tmp)) return GLK_ERR_FULL;
-        if (data && len) memcpy(tmp + n, data, len);
+        if (n != (size_t)s_tab[idx].size) return GLK_ERR_CORRUPT;
+        if (len) memcpy(tmp + n, data, len);
         return glk_fs_write(name, tmp, n + len);
     }
     return glk_fs_write(name, data, len);

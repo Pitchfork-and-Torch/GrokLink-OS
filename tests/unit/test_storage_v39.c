@@ -76,6 +76,15 @@ int main(void) {
     glk_storage_status_json(st, sizeof(st));
     assert(strstr(st, "\"backend\":\"glkfs\"") != NULL);
 
+    /* append must not silently truncate a file larger than the FS scratch buffer */
+    {
+        char big[2100];
+        memset(big, 'B', sizeof(big));
+        assert(glk_storage_write_file("vault/big.bin", big, sizeof(big)) == GLK_OK);
+        glk_err_t ae = glk_storage_append_file("vault/big.bin", "x", 1);
+        assert(ae == GLK_ERR_FULL);
+    }
+
     /* no card path */
     glk_storage_shutdown();
     glk_err_t de = glk_storage_init_device();
