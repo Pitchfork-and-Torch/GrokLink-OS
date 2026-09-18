@@ -1,0 +1,22 @@
+{
+  "id": "medsec_lab_passive_ism",
+  "name": "MedSec lab passive ISM sample",
+  "version": 2,
+  "autonomous": false,
+  "description": "Authorized MedSec lab passive ISM (433.92 + 315). No TX. NOT a medical device.",
+  "safety": {
+    "max_risk_class": "passive_rx",
+    "require_confirm": false,
+    "not_medical_device": true
+  },
+  "steps": [
+    {"op": "log", "msg": "medsec_lab_passive_ism - authorized lab only - no TX"},
+    {"op": "subghz_rx", "freq_hz": 433920000, "ms": 200},
+    {"op": "sleep_ms", "ms": 100},
+    {"op": "subghz_rx", "freq_hz": 315000000, "ms": 200},
+    {"op": "if_pulses_gt", "threshold": 20},
+    {"op": "log", "msg": "elevated edges - log for analyst"},
+    {"op": "infer"},
+    {"op": "log", "msg": "medsec_lab_passive_ism complete"}
+  ]
+}

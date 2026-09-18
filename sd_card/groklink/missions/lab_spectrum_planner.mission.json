@@ -1,0 +1,16 @@
+{
+  "id": "lab_spectrum_planner",
+  "name": "lab_spectrum_planner",
+  "autonomous": false,
+  "description": "Sequential multi-band RX via loop (agent issues one band per step; settle via sleep).",
+  "steps": [
+    {"op": "log", "msg": "spectrum_start"},
+    {"op": "subghz_rx", "freq_hz": 300000000, "ms": 400},
+    {"op": "sleep", "ms": 200},
+    {"op": "subghz_rx", "freq_hz": 433920000, "ms": 400},
+    {"op": "sleep", "ms": 200},
+    {"op": "subghz_rx", "freq_hz": 868000000, "ms": 400},
+    {"op": "infer"},
+    {"op": "log", "msg": "spectrum_end"}
+  ]
+}

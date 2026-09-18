@@ -1,0 +1,7 @@
+{
+  "actions": [
+    {"op": "subghz_rx", "freq_hz": 433920000, "ms": 500},
+    {"op": "log", "msg": "passive_sample"}
+  ],
+  "never_auto_tx": true
+}

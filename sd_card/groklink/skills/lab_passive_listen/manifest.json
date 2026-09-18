@@ -1,0 +1,7 @@
+{
+  "id": "lab_passive_listen",
+  "version": "3.0.0",
+  "risk_class": "passive_rx",
+  "hw": ["subghz"],
+  "description": "Educational passive SubGHz listen skill for GrokLink OS."
+}

@@ -1,0 +1,137 @@
+{
+  "report": "docs/lab/SIGNAL_WORLD_EXPLORATION.md",
+  "product": "GrokLink OS",
+  "firmware": "3.4.0",
+  "api": 5,
+  "date_utc": "2026-07-22",
+  "scope": "authorized_lab_passive_only",
+  "schema": {
+    "id": "groklink.signal_observation.v1",
+    "version": 1
+  },
+  "tools": [
+    "get_observation_schema",
+    "get_device_status",
+    "observe_rx",
+    "observe_spectrum",
+    "start_monitor",
+    "stop_monitor",
+    "get_monitor_chunk",
+    "get_recent_activity",
+    "list_missions",
+    "list_skills",
+    "run_passive_mission",
+    "get_mission_status",
+    "start_offline_agent",
+    "stop_offline_agent",
+    "get_agent_status",
+    "get_vault_tail"
+  ],
+  "tool_count": 16,
+  "device_profile": {
+    "version": "3.4.0",
+    "api": 5,
+    "edu": true,
+    "sd": false,
+    "blacklist_ok": true,
+    "missions": 3,
+    "skills": 3,
+    "heap_free": 4096,
+    "sim": false,
+    "mission_ids": [
+      "lab_passive_433",
+      "lab_spectrum_planner",
+      "lab_passive_watch"
+    ]
+  },
+  "flash": {
+    "artifact": "GrokLink-OS-v3.4.0-radio.dfu",
+    "payload_bytes": 32996,
+    "result": "success",
+    "note": "qFlipper post-flash protobuf timeout expected for non-Flipper firmware"
+  },
+  "lab_rx_samples": [
+    {
+      "id": "post_flash_a",
+      "freq_hz": 433920000,
+      "freq_mhz": 433.92,
+      "dwell_ms": 300,
+      "pulses": 6851,
+      "rssi_dbm": -114,
+      "occupancy": "high",
+      "energy_score": 0.65,
+      "sim": false,
+      "narrative": "Passive RX at 433.920 MHz for 300 ms: pulses=6851, rssi=-114 dBm, occupancy=high, simulated=False."
+    },
+    {
+      "id": "post_reflash_b",
+      "freq_hz": 433920000,
+      "freq_mhz": 433.92,
+      "dwell_ms": 300,
+      "pulses": 6778,
+      "rssi_dbm": -112,
+      "occupancy": "high",
+      "energy_score": 0.65,
+      "sim": false,
+      "narrative": "Passive RX at 433.920 MHz for 300 ms: pulses=6778, rssi=-112 dBm, occupancy=high, simulated=False."
+    },
+    {
+      "id": "quiet_model_check",
+      "freq_hz": 433920000,
+      "freq_mhz": 433.92,
+      "dwell_ms": 400,
+      "pulses": 0,
+      "rssi_dbm": -120,
+      "occupancy": "quiet",
+      "energy_score": 0.0,
+      "sim": false,
+      "narrative": "Passive RX at 433.920 MHz for 400 ms: pulses=0, rssi=-120 dBm, occupancy=quiet, simulated=False."
+    }
+  ],
+  "spectrum_model": {
+    "narrative": "Spectrum scan of 3 band(s), dwell=250 ms, settle=2000 ms. Hottest: 433.92 MHz (pulses=6778, occupancy=high).",
+    "hottest": {
+      "freq_hz": 433920000,
+      "freq_mhz": 433.92,
+      "pulses": 6778,
+      "rssi_dbm": -112,
+      "occupancy": "high",
+      "energy_score": 0.65,
+      "band_label": "433-class"
+    },
+    "bands": [
+      {
+        "freq_mhz": 315.0,
+        "pulses": 120,
+        "rssi_dbm": -120,
+        "occupancy": "high"
+      },
+      {
+        "freq_mhz": 433.92,
+        "pulses": 6778,
+        "rssi_dbm": -112,
+        "occupancy": "high"
+      },
+      {
+        "freq_mhz": 868.35,
+        "pulses": 40,
+        "rssi_dbm": -122,
+        "occupancy": "medium"
+      }
+    ]
+  },
+  "safety": {
+    "observation_tx": false,
+    "passive_only": true,
+    "human_gated_tx": true,
+    "edu_phrase": "I_WILL_USE_ONLY_AUTHORIZED_TARGETS"
+  },
+  "limitations": [
+    "light_rx_edges_and_rssi_only",
+    "occupancy_is_host_heuristic",
+    "no_protocol_decode_in_v3_light_rx",
+    "windows_cdc_requires_careful_transport"
+  ],
+  "publisher": "Pitchfork-and-Torch",
+  "license": "MIT"
+}
