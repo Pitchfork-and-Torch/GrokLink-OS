@@ -4,7 +4,7 @@
 **Landing:** https://groklink.jonbailey.xyz/  
 **Source / primary product URL:** https://github.com/Pitchfork-and-Torch/GrokLink-OS  
 **Org:** Pitchfork-and-Torch  
-**Last reviewed:** 2026-09-17  
+**Last reviewed: 2026-09-22**
 **Latest version:** 3.9.1 (host/CI honesty; device DFU not recut)  
 **Landing hub:** interactive architecture explorer, safety policy simulator, skills/agent/vault demos, quickstart wizard (browser education only; no live RF)
 
