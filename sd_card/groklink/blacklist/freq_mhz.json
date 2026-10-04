@@ -1,0 +1,4 @@
+{
+  "description": "Banned center frequencies (MHz). Fail-closed for TX near these.",
+  "banned_mhz": []
+}

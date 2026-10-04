@@ -1,0 +1,12 @@
+{
+  "params": {
+    "mode": "read_study",
+    "write_emulate": false
+  },
+  "on_run": [
+    { "op": "log", "message": "med_asset_uid_inventory - use stock NFC read for UIDs" },
+    { "op": "log", "message": "write and emulate remain deny by policy" },
+    { "op": "log", "message": "record UID + operator location offline in private vault - no PHI" },
+    { "op": "log", "message": "not a medical device - inventory study only" }
+  ]
+}

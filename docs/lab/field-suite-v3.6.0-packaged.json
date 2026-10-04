@@ -1,0 +1,53 @@
+{
+  "noise_floor_packaged": {
+    "narrative": "Passive RX at 433.920 MHz for 150 ms: pulses=100, rate=666.0 Hz, rssi=-115 dBm, occupancy=high, calibrated=ambient, snr_est=0.0 dB, simulated=False.",
+    "kind": "noise_floor",
+    "calibration": {
+      "noise_floor_dbm": -115.0,
+      "baseline_pulse_rate_hz": 666.0,
+      "snr_est_db": 0.0,
+      "method": "observe_noise_floor",
+      "age_ms": 0,
+      "band_label": "433-class",
+      "sample_count": 1
+    }
+  },
+  "rx_packaged": {
+    "narrative": "Passive RX at 433.920 MHz for 200 ms: pulses=6631, rate=33155.0 Hz, rssi=-112 dBm, occupancy=high, calibrated=elevated, snr_est=3.0 dB, simulated=False.",
+    "activity": {
+      "pulses": 6631,
+      "rssi_dbm": -112,
+      "energy_score": 0.65,
+      "occupancy": "high",
+      "calibrated_occupancy": "elevated",
+      "confidence": 0.85,
+      "modulation_hint": "ook_async_edges"
+    },
+    "stats": {
+      "pulse_rate_hz": 33155.0,
+      "rssi_min_dbm": -112,
+      "rssi_max_dbm": -108,
+      "rssi_dbm": -112,
+      "pulses": 6631,
+      "dwell_ms": 200
+    },
+    "calibration": {
+      "noise_floor_dbm": -115.0,
+      "baseline_pulse_rate_hz": 666.0,
+      "snr_est_db": 3.0,
+      "method": "observe_noise_floor",
+      "age_ms": 0,
+      "band_label": "433-class",
+      "sample_count": 1
+    },
+    "safety": {
+      "path": "passive_rx",
+      "tx": false,
+      "gpio": false,
+      "system": false,
+      "decode": false,
+      "audited": true,
+      "authorized_use_only": true
+    }
+  }
+}

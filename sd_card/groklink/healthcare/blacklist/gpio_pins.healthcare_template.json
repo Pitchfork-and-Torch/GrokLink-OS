@@ -1,0 +1,5 @@
+{
+  "description": "TEMPLATE - GPIO pins to ban for output under healthcare-adjacent RoE. Merge selected pins into blacklist/gpio_pins.json after review.",
+  "banned_pins": [],
+  "comment": "Default empty. Under medsec-strict, all GPIO-out is denied by policy."
+}

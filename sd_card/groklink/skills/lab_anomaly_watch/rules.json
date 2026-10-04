@@ -1,0 +1,9 @@
+{
+  "actions": [
+    {"op": "subghz_rx", "freq_hz": 433920000, "ms": 400},
+    {"op": "infer"},
+    {"op": "if_pulses_gt", "threshold": 20},
+    {"op": "log", "msg": "busy_band"}
+  ],
+  "never_auto_tx": true
+}
